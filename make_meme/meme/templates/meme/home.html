@@ -1,0 +1,36 @@
+{% extends "meme/base.html" %}
+{% block content %}
+<section class="bg-white">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <div class="card rounded-3 text-dark" >
+                    <div class="card-header py-4">GENERATE</div>
+                    <div class="card-body">
+                        <form class="" action="" method="post">
+                            <div class="row gx-5 mb-3">
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="meme-description" placeholder="Tell us about your meme" type="text" required></textarea>
+                                </div>
+                            </div>
+                            <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">MAKE</button></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+                <div class="card rounded-3" >
+                    <img class="card-img-top" src="https://cms.qz.com/wp-content/uploads/2018/07/meme-featured.jpg?quality=75&strip=all&w=900&h=900&crop=1" alt="">
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

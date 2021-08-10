@@ -1,0 +1,26 @@
+{% extends "meme/base.html" %}
+{% block content %}
+
+
+    <div class="container mt-5">
+
+        {% for post in posts %}
+            <article class="media content-section bg-light">
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <a class="mr-2" href="https://twitter.com/josh_bickett/">{{ post.author }}</a>
+                        <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                    </div>
+                    <h2 class="py-3"><a class="article-title" href="#">{{ post.title }}</a> </h2>
+                    <p class="article-content">{{ post.content }}</p>
+                </div>
+            </article>
+        {% endfor %}
+        <div class="row justify-content-center my-5">
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Who controls the memes,<br>controls the Universe</p>&mdash; Elon Musk (@elonmusk) <a href="https://twitter.com/elonmusk/status/1276418907968925696?ref_src=twsrc%5Etfw">June 26, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+    </div>
+
+
+{% endblock content %}

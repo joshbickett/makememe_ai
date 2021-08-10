@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="makememe" preserveTimestamps="false" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="makememe">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/home/ubuntu/make_meme" local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
