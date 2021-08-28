@@ -6,6 +6,7 @@
 
         {% for post in posts %}
             <article class="media content-section bg-light">
+				<img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
                 <div class="media-body">
                     <div class="article-metadata">
                         <a class="mr-2" href="https://twitter.com/josh_bickett/">{{ post.author }}</a>

@@ -29,6 +29,17 @@
     <meta name="twitter:image" content="https://cms.qz.com/wp-content/uploads/2018/07/meme-featured.jpg?quality=75&strip=all&w=900&h=900&crop=1">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-808L63XJZK"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-808L63XJZK');
+    </script>
+
+
     </head>
     <body>
         <header class="site-header">
@@ -53,12 +64,37 @@
                             <a class="nav-link" href="{% url 'meme-technology' %}">Tech</a>
                         </li>
                     </ul>
+					<ul class="navbar-nav">
+						{% if user.is_authenticated %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'profile' %}"><small>Profile</small></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'logout' %}"><small>Logout</small></a>
+							</li>
+						{% else %}
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'login' %}"><small>Login</small></a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{% url 'register' %}"><small>Sign up</small></a>
+							</li>
+						{% endif %}
+
+                    </ul>
                 </div>
             </div>
 
             </nav>
         </header>
 
+		{% if messages %}
+			{% for message in messages %}
+				<div class="alert alert-{{ message.tags }}">
+					{{ message }}
+				</div>
+			{% endfor %}
+		{% endif %}
         {% block content %}{% endblock %}
 
         <footer class="footer bg-white pb-5" style="margin-top: 20rem" id="footer">

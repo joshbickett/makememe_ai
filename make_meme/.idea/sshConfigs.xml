@@ -2,7 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig host="35.83.44.211" id="b3e92367-9f09-4e08-9441-be03325d93f0" keyPath="$PROJECT_DIR$/../../../connect/josh@bickett.net/key.pem" port="22" nameFormat="DESCRIPTIVE" username="josh" />
+      <sshConfig host="35.83.44.211" id="b3e92367-9f09-4e08-9441-be03325d93f0" keyPath="$PROJECT_DIR$/../../../ssh/josh@bickett.net/key.pem" port="22" nameFormat="DESCRIPTIVE" username="josh" />
     </configs>
   </component>
 </project>

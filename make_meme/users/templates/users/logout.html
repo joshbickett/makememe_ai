@@ -1,0 +1,22 @@
+{% extends "meme/base.html" %}
+
+{% block content %}
+
+    <header class="page-header page-header-light bg-white">
+        <div class="page-header-content">
+            <div class="container" style="margin-top: 15rem;">
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10 mb-4 aos-init aos-animate" data-aos="fade">
+							<h2>You have been logged out</h2>
+							<div class="border-top pt-3">
+								<small class="text-muted">
+									<a href="{% url 'login' %}">Login again</a>
+								</small>
+							</div>
+						</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock content %}
