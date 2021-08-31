@@ -1,5 +1,4 @@
 from django.urls import path
-# COMMENT: remember to add this line below
 from . import views
 
 
