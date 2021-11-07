@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="bg-white">
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-lg-3">
+
+			</div>
+            <div class="col-lg-6">
+                <div class="card rounded-3 text-dark" >
+                    <div class="card-header py-4">DESCRIBE YOUR MEME</div>
+                    <div class="card-body">
+                        {% if (authenticated==True and is_beta==False) %}
+                            <p>Thanks for signing up. We will let you know once available.</p>
+                        {% elif is_beta==False %}
+                            <p>We are currently in beta mode. Sign up to be added to the waitlist.</p>
+                        {% endif %}
+                        <form method="POST">
+
+                            <div class="row gx-5 mb-3">
+                                <div class="col-md-12">
+                                    <textarea class="form-control" name="description" placeholder="Tell us about your meme" type="text" required></textarea>
+                                </div>
+                            </div>
+                            {% if is_beta %}
+                                <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">MAKE</button></div>
+                            {% else %}
+                                <div class="d-grid"><button class="btn btn-secondary btn-block" type="submit" disabled>COMING SOON</button></div>
+                            {% endif %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+        <div class="row pb-5">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8">
+
+                <div class="card rounded-3" >
+                    <img class="card-img-top" src="{{ image_file }}" alt="">
+                </div>
+            </div>
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
