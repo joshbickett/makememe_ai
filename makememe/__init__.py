@@ -11,7 +11,7 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = config["SECRET_KEY"]
 # CORS(app)
 
-app.debug = False
+app.debug = True
 app.config['SQLALCHEMY_DATABASE_URI'] = config["DB_URI"]
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
