@@ -25,6 +25,7 @@ from flask_login import current_user
 from makememe.models import Users, Meme
 from datetime import datetime, timedelta
 from sqlalchemy import Date, cast
+from makememe import db
 from better_profanity import profanity
 
 def make(description):
@@ -107,6 +108,8 @@ def make(description):
     
     meme_for_db = Meme(title=meme['meme'], text_input=user_input, nlp_output=nlp_output, user_id=current_user.id)
     print("meme_for_db: ", meme_for_db)
+    db.session.add(meme_for_db)
+    db.session.commit()
     return meme
 
 
