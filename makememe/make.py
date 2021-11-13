@@ -21,63 +21,74 @@ from makememe.generator.prompts.types.positive.equal_in_comparison import Equal_
 from makememe.generator.prompts.types.positive.so_good import So_Good
 from makememe.generator.prompts.types.positive.better_and_distracting import Better_And_Distracting
 from makememe.generator.langauge_models.gpt import GPT
+from flask_login import current_user
+from makememe.models import Users, Meme
+from datetime import datetime, timedelta
+from sqlalchemy import Date, cast
 from better_profanity import profanity
 
 def make(description):
     user_input = description.strip()
     if not profanity.contains_profanity(user_input):
-        print(f'user_input: {user_input}')
-        sentiment_classifier = Sentiment_Classifier()
-        sentiment_classifier.append_example(user_input)
-        print('________start_________')
-        print('________sentiment_classifier_prompt_________')
-        print(f'prompt: {sentiment_classifier.instruction}')
-        try:
-            response = GPT.request(sentiment_classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
-            print('________sentiment_classifier_completion_________')
-            print(f'response: {response}')
-            if response == 'positive':
-                classifier = Positive_Classifier()
-                classifier.append_example(user_input)
-                print('________classifier_prompt_________')
-                print(f'prompt: {classifier.instruction}')
-                response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
-                print('________classifier_completion_________')
+        hit_limit = did_hit_limit()
+        print("hit_limit: ", hit_limit)
+        if hit_limit == False:
+            print(f'user_input: {user_input}')
+            sentiment_classifier = Sentiment_Classifier()
+            sentiment_classifier.append_example(user_input)
+            print('________start_________')
+            print('________sentiment_classifier_prompt_________')
+            print(f'prompt: {sentiment_classifier.instruction}')
+            try:
+                response = GPT.request(sentiment_classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
+                print('________sentiment_classifier_completion_________')
                 print(f'response: {response}')
-                meme_description = response
-                meme = generate_meme(user_input, meme_description)
+                if response == 'positive':
+                    classifier = Positive_Classifier()
+                    classifier.append_example(user_input)
+                    print('________classifier_prompt_________')
+                    print(f'prompt: {classifier.instruction}')
+                    response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
+                    print('________classifier_completion_________')
+                    print(f'response: {response}')
+                    meme_description = response
+                    meme = generate_meme(user_input, meme_description)
 
-            elif response == 'negative':
-                classifier = Negative_Classifier()
-                classifier.append_example(user_input)
-                print('________classifier_prompt_________')
-                print(f'prompt: {classifier.instruction}')
-                # todo: change all to this format
-                response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
-                print('________classifier_completion_________')
-                print(f'response: {response}')
-                meme_description = response
-                meme = generate_meme(user_input, meme_description)
-            else:
-                meme = {
-                    'meme': 'meme_pics/error.png'
-                }
-        except Exception as e:
-            print(f'error: {e}')
-            if e.args: 
-                flagged = e.args[0].startswith('The content has been flagged')
-                if flagged:
-                    meme = {
-                        'meme': 'meme_pics/flagged.png'
-                    }
+                elif response == 'negative':
+                    classifier = Negative_Classifier()
+                    classifier.append_example(user_input)
+                    print('________classifier_prompt_________')
+                    print(f'prompt: {classifier.instruction}')
+                    # todo: change all to this format
+                    response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
+                    print('________classifier_completion_________')
+                    print(f'response: {response}')
+                    meme_description = response
+                    meme = generate_meme(user_input, meme_description)
                 else:
                     meme = {
                         'meme': 'meme_pics/error.png'
                     }
-            else: 
-                meme = {
-                    'meme': 'meme_pics/error.png'
-                }
+            except Exception as e:
+                print(f'error: {e}')
+                if e.args: 
+                    flagged = e.args[0].startswith('The content has been flagged')
+                    if flagged:
+                        meme = {
+                            'meme': 'meme_pics/flagged.png'
+                        }
+                    else:
+                        meme = {
+                            'meme': 'meme_pics/error.png'
+                        }
+                else: 
+                    meme = {
+                        'meme': 'meme_pics/error.png'
+                    }
+        else: 
+            meme = {
+                'meme': 'meme_pics/limit_5.png'
+            }
     else:
         print("Error: Generation Flagged")
         meme = {
@@ -116,5 +127,20 @@ def generate_meme(user_input, meme_description):
         'meme': 'meme_pics/error.png'
     }
     return context
+
+def did_hit_limit(): 
+    user = Users.query.filter_by(id=current_user.id).first()
+    print("check_limit()")
+    print("user: ", user.username)
+    now = datetime.now()
+    day_ago = now - timedelta(hours=24)
+    meme_count = Meme.query.filter(Meme.date_created > day_ago).filter(Users.id == 3).count()
+    print("meme_count: ", meme_count)
+    if meme_count > 5: 
+        return True
+    else: 
+        return False
+
+
 
 
