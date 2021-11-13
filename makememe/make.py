@@ -29,9 +29,11 @@ from better_profanity import profanity
 
 def make(description):
     user_input = description.strip()
+    nlp_output = ''
     if not profanity.contains_profanity(user_input):
         hit_limit = did_hit_limit()
         print("hit_limit: ", hit_limit)
+        
         if hit_limit == False:
             print(f'user_input: {user_input}')
             sentiment_classifier = Sentiment_Classifier()
@@ -51,7 +53,9 @@ def make(description):
                     response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
                     print('________classifier_completion_________')
                     print(f'response: {response}')
+                    
                     meme_description = response
+                    nlp_output = meme_description
                     meme = generate_meme(user_input, meme_description)
 
                 elif response == 'negative':
@@ -64,15 +68,19 @@ def make(description):
                     print('________classifier_completion_________')
                     print(f'response: {response}')
                     meme_description = response
+                    nlp_output = meme_description
                     meme = generate_meme(user_input, meme_description)
                 else:
+                    nlp_output = 'error'
                     meme = {
                         'meme': 'meme_pics/error.png'
                     }
             except Exception as e:
                 print(f'error: {e}')
+                nlp_output = 'error'
                 if e.args: 
                     flagged = e.args[0].startswith('The content has been flagged')
+                    nlp_output = 'flagged'
                     if flagged:
                         meme = {
                             'meme': 'meme_pics/flagged.png'
@@ -86,15 +94,19 @@ def make(description):
                         'meme': 'meme_pics/error.png'
                     }
         else: 
+            nlp_output = 'limit hit'
             meme = {
                 'meme': 'meme_pics/limit_5.png'
             }
     else:
         print("Error: Generation Flagged")
+        nlp_output = 'flagged'
         meme = {
             'meme': 'meme_pics/flagged.png'
         }
-        
+    
+    meme_for_db = Meme(title=meme['meme'], text_input=user_input, nlp_output=nlp_output, user_id=current_user.id)
+    print("meme_for_db: ", meme_for_db)
     return meme
 
 
