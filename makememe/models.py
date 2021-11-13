@@ -14,6 +14,7 @@ class Users(db.Model, UserMixin):
     password = db.Column(db.String(60), nullable=False)
     is_beta = db.Column(db.Boolean, default=False)
     posts = db.relationship('Post', backref='author', lazy=True)
+    memes = db.relationship('Meme', backref='creator', lazy=True)
     
 
     def __repr__(self):
@@ -29,3 +30,15 @@ class Post(db.Model):
 
     def __repr__(self):
         return f"Post('{self.title}', '{self.date_posted}')"
+
+
+class Meme(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(200), nullable=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    text_input =  db.Column(db.Text, nullable=False)
+    nlp_output =  db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+
+    def __repr__(self):
+        return f"Meme('{self.title}', '{self.date_created}')"

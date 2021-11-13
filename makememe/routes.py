@@ -3,7 +3,7 @@ from PIL import Image
 from flask import render_template, flash, redirect, url_for, request
 from makememe import app, db, bcrypt
 from makememe.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from makememe.models import Users, Post
+from makememe.models import Users, Post, Meme
 from makememe.make import make
 from flask_login import login_user, current_user, logout_user, login_required
 
