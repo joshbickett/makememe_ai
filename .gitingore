@@ -1,3 +1,2 @@
-# Compiled source #
-###################
-.pyc
+__pycache__/
+ *.pyc

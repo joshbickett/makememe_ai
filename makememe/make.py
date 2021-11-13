@@ -64,15 +64,20 @@ def make(description):
                 }
         except Exception as e:
             print(f'error: {e}')
-            # flagged = e.args[0].startswith('The content has been flagged')
-            # if flagged:
-            #     meme = {
-            #         'meme': 'meme_pics/flagged.png'
-            #     }
-            # else:
-            meme = {
-                'meme': 'meme_pics/error.png'
-            }
+            if e.args: 
+                flagged = e.args[0].startswith('The content has been flagged')
+                if flagged:
+                    meme = {
+                        'meme': 'meme_pics/flagged.png'
+                    }
+                else:
+                    meme = {
+                        'meme': 'meme_pics/error.png'
+                    }
+            else: 
+                meme = {
+                    'meme': 'meme_pics/error.png'
+                }
     else:
         print("Error: Generation Flagged")
         meme = {
@@ -92,6 +97,7 @@ def generate_meme(user_input, meme_description):
             print(f'prompt: {meme.instruction}')
 
             filter_no = GPT.content_filter(meme.instruction)['choices'][0]['text']
+            print("filter_no: ", filter_no)
             if filter_no == '2':
                 raise Exception('The content has been flagged')
             print('________meme_completion_________')
@@ -110,4 +116,5 @@ def generate_meme(user_input, meme_description):
         'meme': 'meme_pics/error.png'
     }
     return context
+
 
