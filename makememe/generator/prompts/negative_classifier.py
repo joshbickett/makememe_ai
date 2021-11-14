@@ -3,7 +3,7 @@ from makememe.generator.prompts.prompt import Prompt
 class Negative_Classifier(Prompt):
     def __init__(self):
         self.instruction = '''
-Find the description that fits best: sad, don't care, waiting, they don't know, not good, pompous, better, poor fix, no responsibility, ineffective solution
+Find the description that fits best: sad, don't care, waiting, they don't know, pompous, better, poor fix, no responsibility, ineffective solution
 
 ###
 Message: Apple is getting rid of headphone jacks and I am sad about it
@@ -17,9 +17,6 @@ Description: better
 ###
 Message: The federal government installed a new road outside the city. This is a poor fix for our traffic
 Description: poor fix
-###
-Message: The Nikola trucks are horrible
-Description: not good
 ###
 Message: They don't know I can code
 Description: they don't know

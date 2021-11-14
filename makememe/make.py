@@ -10,7 +10,6 @@ from makememe.generator.prompts.types.negative.poor_fix import Poor_Fix
 from makememe.generator.prompts.types.both.they_dont_know import They_Dont_Know
 from makememe.generator.prompts.types.positive.three_levels_getting_better import Three_Levels_Getting_Better
 from makememe.generator.prompts.types.negative.waiting import Waiting
-from makememe.generator.prompts.types.negative.not_good import Not_Good
 from makememe.generator.prompts.types.negative.pompous import Pompous
 from makememe.generator.prompts.types.negative.better import Better
 from makememe.generator.prompts.types.negative.no_responsibility import No_Responsibility
@@ -115,7 +114,7 @@ def make(description):
 
 def generate_meme(user_input, meme_description):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better_In_Comparison, Three_Levels_Getting_Better, Not_Good, Pompous, Better, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, So_Good, Better_And_Distracting]
+    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better_In_Comparison, Three_Levels_Getting_Better, Pompous, Better, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, So_Good, Better_And_Distracting]
     for meme in memes:
         if meme_description == meme.description:
             meme = eval(f'{meme.name}()')
