@@ -12,7 +12,7 @@ Description: they don't know
 Message: Tesla is the greatest car company on earth in my opinion
 Description: in my opinion
 ###
-Message: I was told that I am a picky person and they could be more accurate
+Message: I was told that I am a picky person and they couldn't be more accurate
 Description: accurate depiction
 ###
 Message: Apple is way better than Android. Don't quote me.
@@ -54,7 +54,7 @@ Description: three levels getting better
 Message: I don't want a Honda, I want a Tesla
 Description: better in comparison
 ###
-Message: Humans making memes good, AI making memes bad.
+Message: Humans making memes ok, AI making memes awesome.
 Description: better in comparison
 ###
 Message: I don't know if you guys realized I can an write an App in ReactJS while also using the Django framework on the backend
