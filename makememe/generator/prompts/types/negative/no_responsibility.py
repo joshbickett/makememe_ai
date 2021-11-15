@@ -12,9 +12,6 @@ class No_Responsibility(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: The federal government blames the state government and no group takes responsibility
-{"party_one":"federal government", "party_two":"state government"}
-###
 Message: Company 1 is suing company 2 and neither thinks they are wrong
 {"party_one":"Company 1", "party_two":"company 2"}
 ###
