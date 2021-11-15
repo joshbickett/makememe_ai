@@ -30,9 +30,6 @@ Description: in my opinion
 Message: Talking is ok. Reading is great, but coding is the best
 Description: three levels getting better
 ###
-Message: Apple is better than Android, prove me wrong
-Description: better in comparison
-###
 Message: Sure remote work is good and meeting up often is great, but working together daily is the best.
 Description: three levels getting better
 ###
