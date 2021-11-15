@@ -5,7 +5,7 @@ from makememe.generator.prompts.helper import Helper
 from makememe.generator.design.font import font_path
 
 class Waiting(Prompt):
-    name = "Sad"
+    name = "Waiting"
     description = "waiting"
 
     def __init__(self):
