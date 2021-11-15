@@ -15,8 +15,8 @@ class Pompous(Prompt):
 Message: People who run marathon think they are superior. Maybe that's the case
 {"action":"Running marathon"}
 ###
-Message: People who place chest seem to think they are better than people who play checkers
-{"action":"People who place chest"}
+Message: People who play chess seem to think they are better than people who play checkers
+{"action":"People who play chess"}
 ###
 Message: Coding gives people a feeling of being great
 {"action":"Coding"}

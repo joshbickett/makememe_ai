@@ -24,8 +24,8 @@ Message: You want to hear an accurate depiction. I am not running enough.
 Message: They don't go outside enough. They need to get some sunlight. It's the truth
 {"depiction":"They need to go outside more"}
 ###
-Message: Humans making memes good, AI making memes bad.
-{"depiction":"You don't want AI making memes"}
+Message: Humans making memes ok, AI making memes awesome.
+{"depiction":"You want AI making memes"}
 ###
 '''
 

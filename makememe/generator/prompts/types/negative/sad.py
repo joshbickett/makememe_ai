@@ -20,9 +20,6 @@ Message: My college degree didn't get me a job and now I am in debt
 Message: I have to actually read to learn something
 {"sad_part": "You have to actually read to learn something"}
 ###
-Message: I will never be famous and it's tragic
-{"sad_part": "You will never be famous"}
-###
 Message: I can't run a marathon, but I wish I could
 {"sad_part": "You can't run a marathon"}
 ###

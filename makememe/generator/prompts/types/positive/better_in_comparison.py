@@ -45,8 +45,8 @@ Message: Surfing in warm water is more enjoyable than surfing in cold water
 Message: Spending time on the internet to make people laugh is better then doing it to cause outrage
 {"worse":"Spending time on the internet to cause outrage","better":"Spending time on the internet to making people laugh"}
 ###
-Message: Humans making memes good, AI making memes bad.
-{"worse":"AI making memes","better":"Humans making memes"}
+Message: Humans making memes ok, AI making memes awesome.
+{"worse":"human making memes","better":"AI making memes"}
 ###
 '''
 

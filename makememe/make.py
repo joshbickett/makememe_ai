@@ -17,7 +17,6 @@ from makememe.generator.prompts.types.negative.ineffective_solution import Ineff
 from makememe.generator.prompts.types.positive.in_my_opinion import In_My_Opinion
 from makememe.generator.prompts.types.positive.accurate_depiction import Accurate_Depiction
 from makememe.generator.prompts.types.positive.equal_in_comparison import Equal_In_Comparison
-from makememe.generator.prompts.types.positive.so_good import So_Good
 from makememe.generator.prompts.types.positive.better_and_distracting import Better_And_Distracting
 from makememe.generator.langauge_models.gpt import GPT
 from flask_login import current_user
@@ -114,7 +113,7 @@ def make(description):
 
 def generate_meme(user_input, meme_description):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better_In_Comparison, Three_Levels_Getting_Better, Pompous, Better, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, So_Good, Better_And_Distracting]
+    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better_In_Comparison, Three_Levels_Getting_Better, Pompous, Better, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Better_And_Distracting]
     for meme in memes:
         if meme_description == meme.description:
             meme = eval(f'{meme.name}()')

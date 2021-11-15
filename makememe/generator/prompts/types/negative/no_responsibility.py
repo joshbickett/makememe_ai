@@ -21,9 +21,6 @@ Message: Company 1 is suing company 2 and neither thinks they are wrong
 Message: The shoemaker blames the sockmaker and the sockmaker blames the shoemaker
 {"party_one":"shoemaker", "party_two":"sockmaker"}
 ###
-Message: Mom sometimes blames dad for not taking out the trash, but dad blames mom who leaves too much trash.
-{"party_one":"dad for not taking out the trash", "party_two":"mom who leaves too much trash."}
-###
 Message: Coffee blames tea for not waking me up after I drink both
 {"party_one":"coffee blaming tea for not walking me up", "party_two":"tea"}
 ###

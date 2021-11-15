@@ -24,7 +24,7 @@ Message: Doing laundry is the worst, I really don't care for it
 Message: Some people cut in line and don't care about others
 {"action":""Cutting in line"}
 ###
-Message: We should all wear sunscreen, but some people don't seem to car
+Message: We should all wear sunscreen, but some people don't seem to care
 {"action":"wearing sunscreen"}
 ###
 Message: Getting patents is sometimes important, but sometimes it is not at all
