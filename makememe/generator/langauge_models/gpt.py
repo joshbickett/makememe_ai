@@ -6,7 +6,7 @@ with open('/etc/make_meme/config.json') as config_file:
 class GPT:
 
     @staticmethod
-    def request(prompt):
+    def completion_request(prompt):
         d_url = 'https://api.openai.com/v1/engines/davinci/completions'
         payload = \
             {
@@ -22,6 +22,20 @@ class GPT:
 
         headers = {'Content-Type': 'application/json',
                    'Authorization': f'Bearer {config["OPEN_AI_KEY"]}'}
+        response = requests.post(d_url, data=json.dumps(payload), headers=headers)
+        response = response.json()
+        return response
+
+    @staticmethod
+    def search_request(documents, query):
+        d_url = 'https://api.openai.com/v1/engines/ada/search'
+        payload = \
+        {
+            'documents': documents,
+            'query': query,
+        }
+        headers = {'Content-Type': 'application/json',
+                    'Authorization': f'Bearer {config["OPEN_AI_KEY"]}'}
         response = requests.post(d_url, data=json.dumps(payload), headers=headers)
         response = response.json()
         return response
