@@ -36,8 +36,6 @@ def make(description):
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
-            # sentiment_classifier = Sentiment_Classifier()
-            # sentiment_classifier.append_example(user_input)
             
             print('________start_________')
             try:
@@ -60,9 +58,9 @@ def make(description):
 
                 print("best_result: ", best_result)
                 print("meme: ", documents[best_result["index"]])
-                meme = {
-                    'meme': 'meme_pics/error.png'
-                }
+                meme_description = documents[best_result["index"]]
+                meme = generate_meme(user_input, meme_description)
+                
                 # response = GPT.request(sentiment_classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
                 # print('________sentiment_classifier_completion_________')
                 # print(f'response: {response}')
@@ -145,7 +143,7 @@ def generate_meme(user_input, meme_description):
             if filter_no == '2':
                 raise Exception('The content has been flagged')
             print('________meme_completion_________')
-            response = GPT.request(meme.instruction)['choices'][0]['text'].strip()
+            response = GPT.completion_request(meme.instruction)['choices'][0]['text'].strip()
 
             print(f'response:{response}')
             response = json.loads(response)
