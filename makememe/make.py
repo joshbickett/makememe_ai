@@ -1,23 +1,18 @@
 import json
-# from makememe import Negative_Classifier
-from makememe.generator.prompts.negative_classifier import Negative_Classifier
-from makememe.generator.prompts.positive_classifier import Positive_Classifier
-from makememe.generator.prompts.sentiment_classifier import Sentiment_Classifier
-from makememe.generator.prompts.types.positive.better_in_comparison import Better_In_Comparison
-from makememe.generator.prompts.types.negative.dont_care import Dont_Care
-from makememe.generator.prompts.types.negative.sad import Sad
-from makememe.generator.prompts.types.negative.poor_fix import Poor_Fix
-from makememe.generator.prompts.types.both.they_dont_know import They_Dont_Know
-from makememe.generator.prompts.types.positive.three_levels_getting_better import Three_Levels_Getting_Better
-from makememe.generator.prompts.types.negative.waiting import Waiting
-from makememe.generator.prompts.types.negative.pompous import Pompous
-from makememe.generator.prompts.types.negative.better import Better
-from makememe.generator.prompts.types.negative.no_responsibility import No_Responsibility
-from makememe.generator.prompts.types.negative.ineffective_solution import Ineffective_Solution
-from makememe.generator.prompts.types.positive.in_my_opinion import In_My_Opinion
-from makememe.generator.prompts.types.positive.accurate_depiction import Accurate_Depiction
-from makememe.generator.prompts.types.positive.equal_in_comparison import Equal_In_Comparison
-from makememe.generator.prompts.types.positive.better_and_distracting import Better_And_Distracting
+from makememe.generator.prompts.types.dont_care import Dont_Care
+from makememe.generator.prompts.types.sad import Sad
+from makememe.generator.prompts.types.poor_fix import Poor_Fix
+from makememe.generator.prompts.types.they_dont_know import They_Dont_Know
+from makememe.generator.prompts.types.three_levels_getting_better import Three_Levels_Getting_Better
+from makememe.generator.prompts.types.waiting import Waiting
+from makememe.generator.prompts.types.pompous import Pompous
+from makememe.generator.prompts.types.better import Better
+from makememe.generator.prompts.types.no_responsibility import No_Responsibility
+from makememe.generator.prompts.types.ineffective_solution import Ineffective_Solution
+from makememe.generator.prompts.types.in_my_opinion import In_My_Opinion
+from makememe.generator.prompts.types.accurate_depiction import Accurate_Depiction
+from makememe.generator.prompts.types.equal_in_comparison import Equal_In_Comparison
+from makememe.generator.prompts.types.better_and_distracting import Better_And_Distracting
 from makememe.generator.langauge_models.gpt import GPT
 from flask_login import current_user
 from makememe.models import Users, Meme
@@ -96,7 +91,7 @@ def make(description):
 
 def generate_meme(user_input, meme_description):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better_In_Comparison, Three_Levels_Getting_Better, Pompous, Better, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Better_And_Distracting]
+    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better, Three_Levels_Getting_Better, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Better_And_Distracting]
     for meme in memes:
         if meme_description == meme.description:
             meme = eval(f'{meme.name}()')
