@@ -30,9 +30,8 @@ def make(description):
     user_input = description.strip()
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
-        # todo: change
-        # hit_limit = did_hit_limit()
-        hit_limit = False
+
+        hit_limit = did_hit_limit()
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
@@ -60,40 +59,6 @@ def make(description):
                 print("meme: ", documents[best_result["index"]])
                 meme_description = documents[best_result["index"]]
                 meme = generate_meme(user_input, meme_description)
-                
-                # response = GPT.request(sentiment_classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
-                # print('________sentiment_classifier_completion_________')
-                # print(f'response: {response}')
-                # if response == 'positive':
-                #     classifier = Positive_Classifier()
-                #     classifier.append_example(user_input)
-                #     print('________classifier_prompt_________')
-                #     print(f'prompt: {classifier.instruction}')
-                #     response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
-                #     print('________classifier_completion_________')
-                #     print(f'response: {response}')
-                    
-                #     meme_description = response
-                #     nlp_output = meme_description
-                #     meme = generate_meme(user_input, meme_description)
-
-                # elif response == 'negative':
-                #     classifier = Negative_Classifier()
-                #     classifier.append_example(user_input)
-                #     print('________classifier_prompt_________')
-                #     print(f'prompt: {classifier.instruction}')
-                #     # todo: change all to this format
-                #     response = GPT.request(classifier.instruction)['choices'][0]['text'].split(":")[1].strip()
-                #     print('________classifier_completion_________')
-                #     print(f'response: {response}')
-                #     meme_description = response
-                #     nlp_output = meme_description
-                #     meme = generate_meme(user_input, meme_description)
-                # else:
-                #     nlp_output = 'error'
-                #     meme = {
-                #         'meme': 'meme_pics/error.png'
-                #     }
             except Exception as e:
                 print(f'error: {e}')
                 nlp_output = 'error'
@@ -123,9 +88,9 @@ def make(description):
             'meme': 'meme_pics/flagged.png'
         }
     
-    # meme_for_db = Meme(title=meme['meme'], text_input=user_input, nlp_output=nlp_output, user_id=current_user.id)
-    # db.session.add(meme_for_db)
-    # db.session.commit()
+    meme_for_db = Meme(title=meme['meme'], text_input=user_input, nlp_output=nlp_output, user_id=current_user.id)
+    db.session.add(meme_for_db)
+    db.session.commit()
     return meme
 
 
