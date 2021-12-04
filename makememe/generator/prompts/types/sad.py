@@ -46,7 +46,7 @@ Message: Finding a swe internship is challenging.
             wrapped_text = Helper.wrap(meme_text['sad_part'], 20)
 
             d.text((425, 500), wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((50, 1300), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
+            d.text((50, 1200), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")

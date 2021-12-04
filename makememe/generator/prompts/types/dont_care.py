@@ -42,7 +42,7 @@ Message: Getting patents is sometimes important, but sometimes it is not at all
             wrapped_text = Helper.wrap(meme_text['action'], 10)
 
             d.text((100, 175),wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((800, 1000), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
+            d.text((100, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")

@@ -46,7 +46,7 @@ Message: I don't know if you guys realized I can an write an App in ReactJS whil
             wrapped_text = Helper.wrap(meme_text['details'], 15)
 
             d.text((400, 100), wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((850, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 255))
+            d.text((100, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 255))
 
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
