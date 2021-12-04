@@ -54,15 +54,15 @@ Message: Humans making memes ok, AI making memes awesome.
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
             txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
             font = ImageFont.truetype(font_path,50)
-            watermark_font = ImageFont.truetype(font_path, 35)
+            watermark_font = ImageFont.truetype(font_path,25)
             d = ImageDraw.Draw(txt)
 
             meme_text_one = Helper.wrap(meme_text['better'], 15)
             meme_text_two = Helper.wrap(meme_text['worse'], 15)
 
-            d.text((625, 100), meme_text_two, font=font, fill=(0, 0, 0, 128))
-            d.text((625, 525), meme_text_one, font=font, fill=(0, 0, 0, 128))
-            d.text((800, 1000), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
+            d.text((625, 100), meme_text_two, font=font, fill=(0, 0, 0, 255))
+            d.text((625, 525), meme_text_one, font=font, fill=(0, 0, 0, 255))
+            d.text((1000, 850), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")

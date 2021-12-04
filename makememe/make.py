@@ -26,33 +26,35 @@ def make(description):
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
 
-        hit_limit = did_hit_limit()
+        # hit_limit = did_hit_limit()
+        hit_limit = False
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
             
             print('________start_________')
             try:
-                documents= ["sad", "don't care", "waiting", "they don't know", "pompus", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "better in comparison", "equal in comparison", "better and distracting", "three levels getting better"]
+                documents= ["sad", "don't care", "waiting", "they don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "better in comparison", "equal in comparison", "better and distracting", "three levels getting better"]
                 
 
-                best_result = {
-                    "index": -1, 
-                    "score": 0
-                }
-                response = GPT.search_request(documents, user_input)
-                for d in response['data']: 
-                    print("d: ", d)
+                # best_result = {
+                #     "index": -1, 
+                #     "score": 0
+                # }
+                # response = GPT.search_request(documents, user_input)
+                # for d in response['data']: 
+                #     print("d: ", d)
                     
-                    if d["score"] > best_result["score"]:  
-                        print("document: ", d["document"])
-                        print("score: ", d["score"])
-                        best_result["score"] = d["score"]
-                        best_result["index"] = d["document"]
+                #     if d["score"] > best_result["score"]:  
+                #         print("document: ", d["document"])
+                #         print("score: ", d["score"])
+                #         best_result["score"] = d["score"]
+                #         best_result["index"] = d["document"]
 
-                print("best_result: ", best_result)
-                print("meme: ", documents[best_result["index"]])
-                meme_description = documents[best_result["index"]]
+                # print("best_result: ", best_result)
+                # print("meme: ", documents[best_result["index"]])
+                # meme_description = documents[best_result["index"]]
+                meme_description = documents[5]
                 meme = generate_meme(user_input, meme_description)
             except Exception as e:
                 print(f'error: {e}')

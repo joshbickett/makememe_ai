@@ -33,8 +33,8 @@ Message: I want to create an NFT, but opensea.com is taking a while to load
 
             wrapped_text = Helper.wrap(meme_text['waiting_on'], 20)
 
-            d.text((800, 800), wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((10, 1000), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
+            d.text((600, 800), wrapped_text, font=font, fill=(0, 0, 0, 255))
+            d.text((30, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")

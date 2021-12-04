@@ -38,8 +38,8 @@ Message: Being able to do a front flip makes people pompus
 
             wrapped_text = Helper.wrap(meme_text['action'], 10)
 
-            d.text((10, 925),wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((10, 1200), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
+            d.text((30, 900),wrapped_text, font=font, fill=(0, 0, 0, 255))
+            d.text((30, 1125), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
