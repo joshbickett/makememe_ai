@@ -23,6 +23,7 @@ from makememe.generator.prompts.types.positive.better_and_distracting import Bet
 from makememe.generator.langauge_models.gpt import GPT
 from better_profanity import profanity
 
+# this classifies memes with the completion endpoint
 def make(description):
     user_input = description.strip()
     if not profanity.contains_profanity(user_input):
