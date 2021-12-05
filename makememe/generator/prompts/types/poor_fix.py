@@ -31,11 +31,11 @@ Message: The government built a road when we needed a rail way
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
             txt = Image.new("RGBA", base.size, (255, 255, 255, 0))
             font = ImageFont.truetype(font_path,60)
-            watermark_font = ImageFont.truetype(font_path, 20)
+            watermark_font = ImageFont.truetype(font_path, 25)
             d = ImageDraw.Draw(txt)
             d.text((200, 200), meme_text['subject'], font=font, fill=(255, 255, 255, 255))
-            d.text((200, 800), meme_text['action'], font = font, fill = (255, 255, 255, 255))
-            d.text((10, 1200), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 128))
+            d.text((250, 800), meme_text['action'], font = font, fill = (255, 255, 255, 255))
+            d.text((30, 1250), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 225))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")

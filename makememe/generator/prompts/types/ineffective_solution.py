@@ -41,7 +41,7 @@ Message: I try to read a book to spend less time on my phone, but I end up googl
 
             d.text((100, 100), meme_text_one, font=font, fill=(255, 255, 255, 255))
             d.text((100, 700), meme_text_two, font=font, fill=(255, 255, 255, 255))
-            d.text((10, 1100), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 128))
+            d.text((20, 1150), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")

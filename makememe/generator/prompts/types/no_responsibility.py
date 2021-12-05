@@ -36,8 +36,8 @@ Message: I can't do anything useful
             meme_text_one = Helper.wrap(meme_text['party_one'], 15)
             meme_text_two = Helper.wrap(meme_text['party_two'], 15)
 
-            d.text((100, 200), meme_text_one, font=font, fill=(255, 255, 255, 255))
-            d.text((700, 200), meme_text_two, font=font, fill=(255, 255, 255, 255))
+            d.text((200, 200), meme_text_one, font=font, fill=(255, 255, 255, 255))
+            d.text((800, 200), meme_text_two, font=font, fill=(255, 255, 255, 255))
             d.text((10, 515), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 128))
             out = Image.alpha_composite(base, txt)
             if out.mode in ("RGBA", "P"):
