@@ -39,41 +39,31 @@ Message: If only we were more kind to each other, this world would be a more ple
 '''
 
     def create(self, meme_text):
-        # with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
+        print("meme text in class: ", meme_text)
 
         base=Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg")
 
         wrapped_text = Helper.wrap(meme_text['opinion'], 25)
 
-        font = ImageFont.truetype(font_path, 25)
-        txt=Image.new('L', (500,50))
-        d = ImageDraw.Draw(txt)
-        d.text( (0, 0), wrapped_text,  font=font, fill=255)
-        w=txt.rotate(20,  expand=1)
+        meme_font = ImageFont.truetype(font_path, 25)
+        watermark_font = ImageFont.truetype(font_path, 25)
 
-        base.paste( ImageOps.colorize(w, (0,0,0), (0,0,0)), (600,360),  w)
+        meme_text_overlay =Image.new('L', (int(base.width/4), int(base.height/4)), 0)
+        meme_draw = ImageDraw.Draw(meme_text_overlay)
+        meme_draw.text((0, 0), wrapped_text,  font=meme_font, fill=255)
+        meme_text_overlay=meme_text_overlay.rotate(20,  expand=1)
+
+        watermark_overlay =Image.new('L', (int(base.width/4), int(base.height/4)), 0)
+        watermark_draw = ImageDraw.Draw(watermark_overlay)
+        watermark_draw.text((0, 0), "makememe.ai",  font=watermark_font, fill=255)
+        base.paste(ImageOps.colorize(meme_text_overlay, (0,0,0), (0,0,0)), (575,300), meme_text_overlay)
+        base.paste(ImageOps.colorize(watermark_overlay, (0,0,0), (255,255,255)), (25,600), watermark_overlay)
 
         date = datetime.datetime.now()
         image_name = f'{date}.jpg'
         file_location = f'makememe/static/creations/{image_name}'
         base.save(file_location)
         return image_name
-
-
-        # font = ImageFont.truetype(font_path, 25)
-        # watermark_font = ImageFont.truetype(font_path, 15)
-        # d = ImageDraw.Draw(txt)
-
-        
-        
-
-        # d.text((600, 360),wrapped_text, font=font, fill=(0, 0, 0, 255))
-        # d.text((10, 500), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 128))
-        
-        # w = txt.rotate(17.5, expand=1)
-        # # out = Image.alpha_composite(base, w)
-        # base.paste(w)
-        # if base.mode in ("RGBA", "P"):
-        #     base = base.convert("RGB")
+        return 'test'
         
 
