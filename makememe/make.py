@@ -36,25 +36,28 @@ def make(description):
             try:
                 documents= ["sad", "don't care", "waiting", "they don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "better in comparison", "equal in comparison", "better and distracting", "three levels getting better"]
                 
+                testing = True  
+                if testing:
+                    meme_description = documents[9]
+                else: 
+                    best_result = {
+                        "index": -1, 
+                        "score": 0
+                    }
+                    response = GPT.search_request(documents, user_input)
+                    for d in response['data']: 
+                        print("d: ", d)
+                        
+                        if d["score"] > best_result["score"]:  
+                            print("document: ", d["document"])
+                            print("score: ", d["score"])
+                            best_result["score"] = d["score"]
+                            best_result["index"] = d["document"]
 
-                # best_result = {
-                #     "index": -1, 
-                #     "score": 0
-                # }
-                # response = GPT.search_request(documents, user_input)
-                # for d in response['data']: 
-                #     print("d: ", d)
-                    
-                #     if d["score"] > best_result["score"]:  
-                #         print("document: ", d["document"])
-                #         print("score: ", d["score"])
-                #         best_result["score"] = d["score"]
-                #         best_result["index"] = d["document"]
-
-                # print("best_result: ", best_result)
-                # print("meme: ", documents[best_result["index"]])
-                # meme_description = documents[best_result["index"]]
-                meme_description = documents[5]
+                    print("best_result: ", best_result)
+                    print("meme: ", documents[best_result["index"]])
+                    meme_description = documents[best_result["index"]]
+                
                 meme = generate_meme(user_input, meme_description)
             except Exception as e:
                 print(f'error: {e}')
@@ -96,20 +99,25 @@ def generate_meme(user_input, meme_description):
     memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better, Three_Levels_Getting_Better, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Better_And_Distracting]
     for meme in memes:
         if meme_description == meme.description:
-            meme = eval(f'{meme.name}()')
-            meme.append_example(user_input)
-            print(f'prompt: {meme.instruction}')
+            testing = True
+            if testing: 
+                meme = eval(f'{meme.name}()')
+                image_name = meme.create({"opinion":"this is a test"})
+            else: 
+                meme = eval(f'{meme.name}()')
+                meme.append_example(user_input)
+                print(f'prompt: {meme.instruction}')
 
-            filter_no = GPT.content_filter(meme.instruction)['choices'][0]['text']
-            print("filter_no: ", filter_no)
-            if filter_no == '2':
-                raise Exception('The content has been flagged')
-            print('________meme_completion_________')
-            response = GPT.completion_request(meme.instruction)['choices'][0]['text'].strip()
+                filter_no = GPT.content_filter(meme.instruction)['choices'][0]['text']
+                print("filter_no: ", filter_no)
+                if filter_no == '2':
+                    raise Exception('The content has been flagged')
+                print('________meme_completion_________')
+                response = GPT.completion_request(meme.instruction)['choices'][0]['text'].strip()
 
-            print(f'response:{response}')
-            response = json.loads(response)
-            image_name = meme.create(response)
+                print(f'response:{response}')
+                response = json.loads(response)
+            
             file_location = f'creations/{image_name}'
             context = {
                 'meme': file_location
