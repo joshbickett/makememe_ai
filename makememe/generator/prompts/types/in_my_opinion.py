@@ -1,8 +1,7 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont, ImageOps
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class In_My_Opinion(Prompt):
@@ -39,25 +38,11 @@ Message: If only we were more kind to each other, this world would be a more ple
 '''
 
     def create(self, meme_text):
-        print("meme text in class: ", meme_text)
 
         base=Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg")
 
-        wrapped_text = Helper.wrap(meme_text['opinion'], 25)
-
-        meme_font = ImageFont.truetype(font_path, 25)
-        watermark_font = ImageFont.truetype(font_path, 25)
-
-        meme_text_overlay =Image.new('L', (int(base.width/4), int(base.height/4)), 0)
-        meme_draw = ImageDraw.Draw(meme_text_overlay)
-        meme_draw.text((0, 0), wrapped_text,  font=meme_font, fill=255)
-        meme_text_overlay=meme_text_overlay.rotate(20,  expand=1)
-
-        watermark_overlay =Image.new('L', (int(base.width/4), int(base.height/4)), 0)
-        watermark_draw = ImageDraw.Draw(watermark_overlay)
-        watermark_draw.text((0, 0), "makememe.ai",  font=watermark_font, fill=255)
-        base.paste(ImageOps.colorize(meme_text_overlay, (0,0,0), (0,0,0)), (575,300), meme_text_overlay)
-        base.paste(ImageOps.colorize(watermark_overlay, (0,0,0), (255,255,255)), (25,600), watermark_overlay)
+        Image_Manager.add_text(base=base, text="makememe.ai", position=(25,600), font_size=25, text_color="white", wrapped_width=None, rotate_degrees=None)
+        Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(575,300), font_size=25, text_color="black", wrapped_width=25, rotate_degrees=20)
 
         date = datetime.datetime.now()
         image_name = f'{date}.jpg'
