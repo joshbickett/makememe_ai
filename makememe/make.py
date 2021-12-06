@@ -38,7 +38,7 @@ def make(description):
                 
                 testing = True  
                 if testing:
-                    meme_description = documents[9]
+                    meme_description = documents[10]
                 else: 
                     best_result = {
                         "index": -1, 
@@ -102,7 +102,7 @@ def generate_meme(user_input, meme_description):
             testing = True
             if testing: 
                 meme = eval(f'{meme.name}()')
-                image_name = meme.create({"opinion":"this is a test"})
+                image_name = meme.create({"depiction":"This is a test. A very long test. A long test of information that is typed"})
             else: 
                 meme = eval(f'{meme.name}()')
                 meme.append_example(user_input)
@@ -117,6 +117,7 @@ def generate_meme(user_input, meme_description):
 
                 print(f'response:{response}')
                 response = json.loads(response)
+                image_name = meme.create(response)
             
             file_location = f'creations/{image_name}'
             context = {

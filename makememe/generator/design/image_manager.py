@@ -8,13 +8,13 @@ class Image_Manager:
     print("Image manager create")
   
   @staticmethod
-  def add_text(base, text, position, font_size, text_color, wrapped_width=None, rotate_degrees=None):
+  def add_text(base, text, position, font_size, text_color, text_width_proportion=4, wrapped_width=None, rotate_degrees=None):
 
     if wrapped_width is not None: 
       text = Helper.wrap(text, wrapped_width)
 
     font = ImageFont.truetype(font_path, font_size)
-    overlay_image =Image.new('L', (int(base.width/4), int(base.height/4)), 0)
+    overlay_image =Image.new('L', (int(base.width/text_width_proportion), int(base.height/4)), 0)
     draw = ImageDraw.Draw(overlay_image)    
     draw.text((0, 0), text,  font=font, fill=255)
 

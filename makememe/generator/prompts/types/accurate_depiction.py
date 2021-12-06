@@ -1,8 +1,7 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class Accurate_Depiction(Prompt):
@@ -30,22 +29,14 @@ Message: Humans making memes ok, AI making memes awesome.
 '''
 
     def create(self, meme_text):
-        with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path, 30)
-            watermark_font = ImageFont.truetype(font_path, 20)
-            d = ImageDraw.Draw(txt)
+            base=Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg")
 
-            wrapped_text = Helper.wrap(meme_text['depiction'], 15)
+            Image_Manager.add_text(base=base, text="makememe.ai", position=(10, 1150), font_size=20, text_color="black", wrapped_width=None, rotate_degrees=None)
+            Image_Manager.add_text(base=base, text=meme_text['depiction'], position=(250, 725), font_size=30, text_color="black", text_width_proportion=2, wrapped_width=25, rotate_degrees=348)
 
-            d.text((400, 780),wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((10, 1150), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
-            out = Image.alpha_composite(base, txt)
-            if out.mode in ("RGBA", "P"):
-                out = out.convert("RGB")
-                date = datetime.datetime.now()
-                image_name = f'{date}.jpg'
-                file_location = f'makememe/static/creations/{image_name}'
-                out.save(file_location)
-                return image_name
+            date = datetime.datetime.now()
+            image_name = f'{date}.jpg'
+            file_location = f'makememe/static/creations/{image_name}'
+            base.save(file_location)
+            return image_name
 

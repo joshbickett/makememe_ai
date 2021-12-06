@@ -49,6 +49,5 @@ Message: If only we were more kind to each other, this world would be a more ple
         file_location = f'makememe/static/creations/{image_name}'
         base.save(file_location)
         return image_name
-        return 'test'
         
 
