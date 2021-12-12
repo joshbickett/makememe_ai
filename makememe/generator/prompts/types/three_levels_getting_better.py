@@ -1,7 +1,6 @@
 from makememe.generator.prompts.prompt import Prompt
 import datetime
 from PIL import Image
-from makememe.generator.prompts.helper import Helper
 from makememe.generator.design.image_manager import Image_Manager
 
 

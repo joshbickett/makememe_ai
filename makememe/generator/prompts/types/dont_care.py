@@ -1,8 +1,7 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class Dont_Care(Prompt):
@@ -22,28 +21,27 @@ Message: Doing laundry is the worst, I really don't care for it
 {"action":"Doing laundry"}
 ###
 Message: Some people cut in line and don't care about others
-{"action":""Cutting in line"}
+{"action":""people cut in line"}
 ###
 Message: We should all wear sunscreen, but some people don't seem to care
 {"action":"wearing sunscreen"}
 ###
 Message: Getting patents is sometimes important, but sometimes it is not at all
-{"action":"getting patents"}
+{"action":"Getting patents is sometimes important"}
+###
+Message: Make sure to always writing test before writing code
+{"action":"Make sure to always writing test before writing code"}
 ###
 '''
 
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path, 40)
-            watermark_font = ImageFont.truetype(font_path, 20)
-            d = ImageDraw.Draw(txt)
 
-            wrapped_text = Helper.wrap(meme_text['action'], 10)
-
-            d.text((100, 175),wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((100, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
-            out = Image.alpha_composite(base, txt)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['action'], position=(100, 175), font_size=40, wrapped_width=11)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(100, 1100), font_size=20)
+            
+            base = Image.alpha_composite(base, watermark)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 date = datetime.datetime.now()
