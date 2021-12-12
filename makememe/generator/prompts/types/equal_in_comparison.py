@@ -41,9 +41,11 @@ Message: Surfing in warm water is the same as surfing in cold water. They are eq
             # font = ImageFont.truetype(font_path,50)
             # watermark_font = ImageFont.truetype(font_path, 25)
             # d = ImageDraw.Draw(txt)
-            overlay_image = Image_Manager.add_text(base, meme_text['first'], (75, 200), 45, wrapped_width=15, rotate_degrees=350)
-            overlay_image_2 = Image_Manager.add_text(base, meme_text['second'], (575, 225), 45, wrapped_width=15, rotate_degrees=350)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['first'], position=(70, 180), font_size=45, wrapped_width=12, rotate_degrees=345)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['second'], position=(575, 100), font_size=45, wrapped_width=12, rotate_degrees=345)
+            watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(10, 1150), font_size=20, text_color="black", wrapped_width=None, rotate_degrees=None)
 
+            base = Image.alpha_composite(base, watermark)    
             base = Image.alpha_composite(base, overlay_image)
             out = Image.alpha_composite(base, overlay_image_2)
             if out.mode in ("RGBA", "P"):
