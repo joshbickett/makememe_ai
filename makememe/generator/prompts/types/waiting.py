@@ -1,8 +1,7 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 class Waiting(Prompt):
     name = "Waiting"
@@ -26,16 +25,12 @@ Message: I want to create an NFT, but opensea.com is taking a while to load
 '''
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path,40)
-            watermark_font = ImageFont.truetype(font_path, 20)
-            d = ImageDraw.Draw(txt)
 
-            wrapped_text = Helper.wrap(meme_text['waiting_on'], 20)
-
-            d.text((600, 800), wrapped_text, font=font, fill=(0, 0, 0, 255))
-            d.text((30, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
-            out = Image.alpha_composite(base, txt)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['waiting_on'], position=(600, 950), font_size=40, wrapped_width=20)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(30, 1100), font_size=20)
+            
+            base = Image.alpha_composite(base, watermark)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 # User.objects.filter()
