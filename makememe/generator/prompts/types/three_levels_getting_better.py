@@ -1,8 +1,8 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
+from PIL import Image
 from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class Three_Levels_Getting_Better(Prompt):
@@ -31,21 +31,16 @@ Message: Option 1 is somewhat exciting. Option 2 is more exciting. Option 3 is e
 
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path, 40)
-            watermark_font = ImageFont.truetype(font_path, 20)
-            d = ImageDraw.Draw(txt)
 
-            somewhat_text = Helper.wrap(meme_text['somewhat exciting'], 25)
-            more_text = Helper.wrap(meme_text['more exciting'], 25)
-            extremely_text = Helper.wrap(meme_text['extremely exciting'], 25)
-
-            d.text((25, 100), somewhat_text, font=font, fill=(0, 0, 0, 255))
-            d.text((25, 475), more_text, font=font, fill=(0, 0, 0, 255))
-            d.text((25, 875), extremely_text, font=font, fill=(0, 0, 0, 255))
-            d.text((25, 1100), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
-
-            out = Image.alpha_composite(base, txt)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['somewhat exciting'], position=(25, 100), font_size=40, wrapped_width=18)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['more exciting'], position=(25, 475), font_size=40, wrapped_width=18)
+            overlay_image_3 = Image_Manager.add_text(base=base, text=meme_text['extremely exciting'], position=(25, 875), font_size=40, wrapped_width=18)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(25, 1100), font_size=20, wrapped_width=18)
+            
+            base = Image.alpha_composite(base, watermark)
+            base = Image.alpha_composite(base, overlay_image_2)
+            base = Image.alpha_composite(base, overlay_image_3)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 date = datetime.datetime.now()

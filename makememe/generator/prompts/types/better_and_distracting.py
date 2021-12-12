@@ -1,8 +1,8 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
+from PIL import Image
 from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class Better_And_Distracting(Prompt):
@@ -34,21 +34,16 @@ Message: I get distracted by job postings because I am freelancing all the time.
 
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path, 40)
-            watermark_font = ImageFont.truetype(font_path, 20)
-            d = ImageDraw.Draw(txt)
 
-            meme_text_one = Helper.wrap(meme_text['neglected'], 15)
-            meme_text_two = Helper.wrap(meme_text['subject'], 15)
-            meme_text_three = Helper.wrap(meme_text['distraction'], 15)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['neglected'], position=(75, 75), font_size=45, wrapped_width=12)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(470, 75), font_size=45, wrapped_width=12)
+            overlay_image_3 = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(850, 75), font_size=45, wrapped_width=12)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(10, 8000), font_size=20)
 
-            d.text((115, 100), meme_text_one, font=font, fill=(0, 0, 0, 255))
-            d.text((650, 100), meme_text_two, font=font, fill=(0, 0, 0, 255))
-            d.text((800, 100), meme_text_three, font=font, fill=(0, 0, 0, 255))
-            d.text((10, 800), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
-
-            out = Image.alpha_composite(base, txt)
+            base = Image.alpha_composite(base, watermark)
+            base = Image.alpha_composite(base, overlay_image_2)
+            base = Image.alpha_composite(base, overlay_image_3)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 date = datetime.datetime.now()

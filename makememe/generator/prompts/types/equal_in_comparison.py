@@ -1,7 +1,6 @@
 from makememe.generator.prompts.prompt import Prompt
 import datetime
-from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageChops
-from makememe.generator.design.font import font_path
+from PIL import Image
 from makememe.generator.prompts.helper import Helper
 from makememe.generator.design.image_manager import Image_Manager
 
@@ -37,10 +36,7 @@ Message: Surfing in warm water is the same as surfing in cold water. They are eq
         # Image_Manager.add_text(base=base, text=meme_text['depiction'], position=(250, 725), font_size=30, text_color="black", text_width_proportion=2, wrapped_width=25, rotate_degrees=348)
 
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            # txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            # font = ImageFont.truetype(font_path,50)
-            # watermark_font = ImageFont.truetype(font_path, 25)
-            # d = ImageDraw.Draw(txt)
+
             overlay_image = Image_Manager.add_text(base=base, text=meme_text['first'], position=(70, 180), font_size=45, wrapped_width=12, rotate_degrees=345)
             overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['second'], position=(575, 100), font_size=45, wrapped_width=12, rotate_degrees=345)
             watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(10, 1150), font_size=20, text_color="black", wrapped_width=None, rotate_degrees=None)
