@@ -1,8 +1,8 @@
+from sqlalchemy.sql.expression import text
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 class Poor_Fix(Prompt):
     name = "Poor_Fix"
@@ -29,14 +29,14 @@ Message: The government built a road when we needed a rail way
 '''
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (255, 255, 255, 0))
-            font = ImageFont.truetype(font_path,60)
-            watermark_font = ImageFont.truetype(font_path, 25)
-            d = ImageDraw.Draw(txt)
-            d.text((200, 200), meme_text['subject'], font=font, fill=(255, 255, 255, 255))
-            d.text((250, 800), meme_text['action'], font = font, fill = (255, 255, 255, 255))
-            d.text((30, 1250), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 225))
-            out = Image.alpha_composite(base, txt)
+
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(125, 200), font_size=50, text_color="white", wrapped_width=15)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['action'], position=(350, 850), font_size=50, text_color="white", wrapped_width=20)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(50, 1250), font_size=30, text_color="black")
+            
+            base = Image.alpha_composite(base, watermark)
+            base = Image.alpha_composite(base, overlay_image_2)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 # User.objects.filter()

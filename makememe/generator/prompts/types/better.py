@@ -1,8 +1,7 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class Better(Prompt):
@@ -52,18 +51,14 @@ Message: Humans making memes ok, AI making memes awesome.
 
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path,50)
-            watermark_font = ImageFont.truetype(font_path,25)
-            d = ImageDraw.Draw(txt)
+            
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['better'], position=(625, 100), font_size=50, wrapped_width=15)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['worse'], position=(625, 525), font_size=50, wrapped_width=15)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(1000, 850), font_size=25)
 
-            meme_text_one = Helper.wrap(meme_text['better'], 15)
-            meme_text_two = Helper.wrap(meme_text['worse'], 15)
-
-            d.text((625, 100), meme_text_two, font=font, fill=(0, 0, 0, 255))
-            d.text((625, 525), meme_text_one, font=font, fill=(0, 0, 0, 255))
-            d.text((1000, 850), "makememe.ai", font=watermark_font, fill=(0, 0, 0, 128))
-            out = Image.alpha_composite(base, txt)
+            base = Image.alpha_composite(base, watermark)
+            base = Image.alpha_composite(base, overlay_image_2)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 date = datetime.datetime.now()
