@@ -39,15 +39,19 @@ Message: If only we were more kind to each other, this world would be a more ple
 
     def create(self, meme_text):
 
-        base=Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg")
+        with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-        Image_Manager.add_text(base=base, text="makememe.ai", position=(25,600), font_size=25, text_color="white", wrapped_width=None, rotate_degrees=None)
-        Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(575,300), font_size=25, text_color="black", wrapped_width=25, rotate_degrees=20)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(550,375), font_size=25, text_color="black", wrapped_width=22, rotate_degrees=20)
+            watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(25,600), font_size=25, text_color="white")
 
-        date = datetime.datetime.now()
-        image_name = f'{date}.jpg'
-        file_location = f'makememe/static/creations/{image_name}'
-        base.save(file_location)
-        return image_name
-        
+            base = Image.alpha_composite(base, watermark)
+            out = Image.alpha_composite(base, overlay_image)
+            if out.mode in ("RGBA", "P"):
+                out = out.convert("RGB")
+                date = datetime.datetime.now()
+                image_name = f'{date}.jpg'
+                file_location = f'makememe/static/creations/{image_name}'
+                out.save(file_location)
+                return image_name
+    
 

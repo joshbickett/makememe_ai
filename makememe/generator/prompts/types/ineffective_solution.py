@@ -1,8 +1,7 @@
 from makememe.generator.prompts.prompt import Prompt
-from PIL import Image, ImageDraw, ImageFont
 import datetime
-from makememe.generator.prompts.helper import Helper
-from makememe.generator.design.font import font_path
+from PIL import Image
+from makememe.generator.design.image_manager import Image_Manager
 
 
 class Ineffective_Solution(Prompt):
@@ -31,18 +30,14 @@ Message: I try to read a book to spend less time on my phone, but I end up googl
 
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            txt = Image.new("RGBA", base.size, (0, 0, 0, 0))
-            font = ImageFont.truetype(font_path, 50)
-            watermark_font = ImageFont.truetype(font_path, 25)
-            d = ImageDraw.Draw(txt)
 
-            meme_text_one = Helper.wrap(meme_text['attempted_solution'], 15)
-            meme_text_two = Helper.wrap(meme_text['failure'], 15)
-
-            d.text((100, 100), meme_text_one, font=font, fill=(255, 255, 255, 255))
-            d.text((100, 700), meme_text_two, font=font, fill=(255, 255, 255, 255))
-            d.text((20, 1150), "makememe.ai", font=watermark_font, fill=(255, 255, 255, 128))
-            out = Image.alpha_composite(base, txt)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['attempted_solution'], position=(75, 75), font_size=50, text_color="white", wrapped_width=14)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['failure'], position=(125, 725), font_size=50, text_color="white", wrapped_width=15, rotate_degrees=350)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(20, 1150), font_size=25, text_color="white")
+           
+            base = Image.alpha_composite(base, watermark)
+            base = Image.alpha_composite(base, overlay_image_2)
+            out = Image.alpha_composite(base, overlay_image)
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 date = datetime.datetime.now()

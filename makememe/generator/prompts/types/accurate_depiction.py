@@ -29,14 +29,19 @@ Message: Humans making memes ok, AI making memes awesome.
 '''
 
     def create(self, meme_text):
-            base=Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg")
-
-            Image_Manager.add_text(base=base, text="makememe.ai", position=(10, 1150), font_size=20, text_color="black", wrapped_width=None, rotate_degrees=None)
-            Image_Manager.add_text(base=base, text=meme_text['depiction'], position=(250, 725), font_size=30, text_color="black", text_width_proportion=2, wrapped_width=25, rotate_degrees=348)
-
-            date = datetime.datetime.now()
-            image_name = f'{date}.jpg'
-            file_location = f'makememe/static/creations/{image_name}'
-            base.save(file_location)
-            return image_name
+        with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
+            
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['depiction'], position=(275, 760), font_size=30, wrapped_width=25, rotate_degrees=350)
+            watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(10, 1150), font_size=20)
+            
+            base = Image.alpha_composite(base, watermark)
+            out = Image.alpha_composite(base, overlay_image)
+            if out.mode in ("RGBA", "P"):
+                out = out.convert("RGB")
+                date = datetime.datetime.now()
+                image_name = f'{date}.jpg'
+                file_location = f'makememe/static/creations/{image_name}'
+                out.save(file_location)
+                return image_name
+            
 
