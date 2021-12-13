@@ -26,6 +26,9 @@ Message: Stressed people will go for a run to help them feel better
 Message: The government built a road when we needed a rail way
 {"subject":"government", "action":"built a road"} 
 ###
+Message: as;dlfkja
+{"subject":"as;dlfkja", "action":"as;dlfkja"} 
+###
 '''
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:

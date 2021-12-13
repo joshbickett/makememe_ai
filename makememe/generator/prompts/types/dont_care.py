@@ -32,6 +32,12 @@ Message: Getting patents is sometimes important, but sometimes it is not at all
 Message: Make sure to always writing test before writing code
 {"action":"Make sure to always writing test before writing code"}
 ###
+Message: Break
+{"action":"Break"}
+###
+Message: I wish I could go to the moonb
+{"action":"going to the moon"}
+###
 '''
 
     def create(self, meme_text):

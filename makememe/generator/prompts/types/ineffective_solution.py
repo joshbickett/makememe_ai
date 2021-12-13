@@ -26,6 +26,12 @@ Message: I drink coffee to be more awake, but then I can't sleep and I am tired 
 Message: I try to read a book to spend less time on my phone, but I end up googling concepts on my phone
 {"attempted_solution":"read a book to spend less time on my phone", "failure":"end up googling concepts on my phone"}
 ###
+Message: bralkajsd;
+{"attempted_solution":"bralkajsd;", "failure":"bralkajsd;"}
+###
+Message: I wish AI could help me make memes
+{"attempted_solution":"AI making memes", "failure":"The memes are beyond my sense of humor"}
+###
 '''
 
     def create(self, meme_text):

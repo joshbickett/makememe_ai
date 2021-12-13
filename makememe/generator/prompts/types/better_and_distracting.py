@@ -30,6 +30,15 @@ Message: I am creating a AI algorithm, but now I am getting distracted by creati
 Message: I get distracted by job postings because I am freelancing all the time.
 {"neglected":"freelancing", "subject":"me", "distraction":"job postings"}
 ###
+Message: Try to break 
+{"neglected":"break", "subject":"break","distraction":"break"}
+###
+Message: asd;lfkjasdf
+{"neglected":"asd;lfkjasdf", "subject":"asd;lfkjasdf","distraction":"asd;lfkjasdf"}
+###
+Message: I want to learn web 3 but I am working on ai
+{"neglected":"web 3", "subject":"me","distraction":"web 3"}
+###
 '''
 
     def create(self, meme_text):

@@ -27,6 +27,9 @@ Message: Riding a bike on dirt is just as fun as riding on the street
 Message: Surfing in warm water is the same as surfing in cold water. They are equally fun
 {"first":"surfing in cold water","second":"surfing in warm water"}
 ###
+Message: alsdjkfa
+{"first":"alsdjkfa","second":"alsdjkfa"}
+###
 '''
 
     def create(self, meme_text):

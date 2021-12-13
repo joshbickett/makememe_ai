@@ -26,6 +26,9 @@ Message: Nothing is as cool as learning to code. Reading HTML is cool and learni
 Message: Option 1 is somewhat exciting. Option 2 is more exciting. Option 3 is extremely exciting
 {"somewhat exciting":"Option 1", "more exciting":"Option 2", "extremely exciting":"Option 3"}
 ###
+Message: break
+{"somewhat exciting":"break", "more exciting":"break", "extremely exciting":"break"}
+###
 '''
 
     def create(self, meme_text):

@@ -23,6 +23,12 @@ Message: Coffee blames tea for not waking me up after I drink both
 Message: I can't do anything useful
 {"party_one":"me", "party_two":"me"}
 ###
+Message: break
+{"party_one":"break", "party_two":"break"}
+###
+Message: tlest;laksd
+{"party_one":"test;laksd", "party_two":"test;laksd"}
+###
 '''
 
     def create(self, meme_text):
