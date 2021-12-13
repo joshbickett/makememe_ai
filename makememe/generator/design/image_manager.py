@@ -18,7 +18,10 @@ class Image_Manager:
 
       font = ImageFont.truetype(font_path,font_size)
       draw = ImageDraw.Draw(overlay_image)
-      draw.text(position, text, font=font, fill=(0, 0, 0, 255))
+      fill = (0, 0, 0, 255)
+      if (text_color == "white"):
+        fill = (255, 255, 255, 255)
+      draw.text(position, text, font=font, fill=fill)
       if rotate_degrees is not None: 
         overlay_image = overlay_image.rotate(rotate_degrees)
 

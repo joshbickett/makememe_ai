@@ -34,11 +34,12 @@ def make(description):
             
             print('________start_________')
             try:
-                documents= ["sad", "don't care", "waiting", "they don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "better in comparison", "equal in comparison", "better and distracting", "three levels getting better"]
+                documents= ["sad", "don't care", "waiting", "they don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal in comparison", "better and distracting", "three levels getting better"]
                 
-                testing = True  
+                testing = False
                 if testing:
                     meme_description = documents[10]
+                    print("meme_description: ", meme_description)
                 else: 
                     best_result = {
                         "index": -1, 
@@ -61,11 +62,12 @@ def make(description):
                 meme = generate_meme(user_input, meme_description)
             except Exception as e:
                 print(f'error: {e}')
+                
                 nlp_output = 'error'
-                if e.args: 
+                if isinstance(e.args[0], str): 
                     flagged = e.args[0].startswith('The content has been flagged')
-                    nlp_output = 'flagged'
                     if flagged:
+                        nlp_output = 'flagged'
                         meme = {
                             'meme': 'meme_pics/flagged.png'
                         }
@@ -99,10 +101,10 @@ def generate_meme(user_input, meme_description):
     memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better, Three_Levels_Getting_Better, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Better_And_Distracting]
     for meme in memes:
         if meme_description == meme.description:
-            testing = True
+            testing = False
             if testing: 
                 meme = eval(f'{meme.name}()')
-                image_name = meme.create({"depiction":"This is a test. A very long test. A long test of information that is typed"})
+                image_name = meme.create({"depiction":"You want AI making memes. this is a long test a very long tdst"})
             else: 
                 meme = eval(f'{meme.name}()')
                 meme.append_example(user_input)
