@@ -29,6 +29,9 @@ Message: Option 1 is somewhat exciting. Option 2 is more exciting. Option 3 is e
 Message: break
 {"somewhat exciting":"break", "more exciting":"break", "extremely exciting":"break"}
 ###
+Message: It is great when users are enjoying the app we built
+{"somewhat exciting":"New users", "more exciting":"we built the app", "extremely exciting":"users are enjoying it"}
+###
 '''
 
     def create(self, meme_text):

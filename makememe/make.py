@@ -59,6 +59,7 @@ def make(description):
                     print("meme: ", documents[best_result["index"]])
                     meme_description = documents[best_result["index"]]
                 
+                nlp_output = meme_description
                 meme = generate_meme(user_input, meme_description)
             except Exception as e:
                 print(f'error: {e}')
