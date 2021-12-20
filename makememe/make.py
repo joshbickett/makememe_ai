@@ -26,8 +26,8 @@ def make(description):
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
 
-        # hit_limit = did_hit_limit()
-        hit_limit = False
+        hit_limit = did_hit_limit()
+        # hit_limit = False
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
