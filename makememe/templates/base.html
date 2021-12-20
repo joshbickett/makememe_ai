@@ -68,6 +68,9 @@
 					<ul class="navbar-nav">
 						{% if current_user.is_authenticated %}
 							<li class="nav-item">
+								<a class="nav-link" href="{{ url_for('feedback') }}"><small>Send Feedback</small></a>
+							</li>
+							<li class="nav-item">
 								<a class="nav-link" href="{{ url_for('account') }}"><small>Account</small></a>
 							</li>
 							<li class="nav-item">

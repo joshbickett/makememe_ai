@@ -3,7 +3,7 @@ from PIL import Image
 from flask import render_template, flash, redirect, url_for, request
 from makememe import app, db, bcrypt
 from makememe.forms import RegistrationForm, LoginForm, UpdateAccountForm
-from makememe.models import Users, Post, Meme
+from makememe.models import Users, Post, Meme, Feedback
 from makememe.make import make
 from flask_login import login_user, current_user, logout_user, login_required
 
@@ -36,6 +36,14 @@ def home():
 @app.route('/about')
 def about():
     return render_template('about.html', title='about')
+
+@app.route('/feedback', methods=['GET', 'POST'])
+def feedback():
+    if request.method == 'POST': 
+        feedback = Feedback(description=request.form['description'], user_id=current_user.id)
+        db.session.add(feedback)
+        db.session.commit()
+    return render_template('feedback.html', title='feedback')
 
 @app.route('/blog')
 def blog():

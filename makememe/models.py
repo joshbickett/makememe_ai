@@ -15,6 +15,7 @@ class Users(db.Model, UserMixin):
     is_beta = db.Column(db.Boolean, default=False)
     posts = db.relationship('Post', backref='author', lazy=True)
     memes = db.relationship('Meme', backref='creator', lazy=True)
+    feedback = db.relationship('Feedback', backref='author', lazy=True)
     
 
     def __repr__(self):
@@ -42,3 +43,11 @@ class Meme(db.Model):
 
     def __repr__(self):
         return f"Meme('{self.title}', '{self.date_created}')"
+
+class Feedback(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    description = db.Column(db.String(1000), nullable=False) 
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    def __repr__(self):
+        return f"Feedback('{self.description}', '{self.date_created}')"
