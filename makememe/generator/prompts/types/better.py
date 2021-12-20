@@ -52,8 +52,8 @@ Meme:{"worse":"human making memes","better":"AI making memes"}
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
             
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['better'], position=(625, 100), font_size=50, wrapped_width=15)
-            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['worse'], position=(625, 525), font_size=50, wrapped_width=15)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['worse'], position=(625, 100), font_size=50, wrapped_width=15)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['better'], position=(625, 525), font_size=50, wrapped_width=15)
             watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(1000, 850), font_size=25)
 
             base = Image.alpha_composite(base, watermark)
