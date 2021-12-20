@@ -4,36 +4,36 @@ from PIL import Image
 from makememe.generator.design.image_manager import Image_Manager
 
 
-class They_Dont_Know(Prompt):
-    name = "They_Dont_Know"
-    description = "they don't know"
+class Dont_Know(Prompt):
+    name = "Dont_Know"
+    description = "don't know"
 
     def __init__(self):
         self.instruction = '''
 ###
 Message: I am so proud of my new website that sells dog treats
-{"details":"They don't know I have a new website that sells dog treats"} 
+Meme:{"details":"They don't know I have a new website that sells dog treats"} 
 ###
 Message: They don't know I started a company
-{"details":"They don't know I started a company"} 
+Meme:{"details":"They don't know I started a company"} 
 ###
 Message: Everyone would be impressed that I can run a marathon
-{"details":"They don't know I can run a marathon"} 
+Meme:{"details":"They don't know I can run a marathon"} 
 ###
 Message: No one cares that I am getting married this month
-{"details":"They don't know that I am getting married this month"} 
+Meme:{"details":"They don't know that I am getting married this month"} 
 ###
 Message: They don't know that I have a lot of followers on Twitter
-{"details":"They don't know that I have a lot of followers on Twitter"} 
+Meme:{"details":"They don't know that I have a lot of followers on Twitter"} 
 ###
 Message: We don't care that you have a masters in computer science
-{"details":"They don't know that I have a masters in computer science"} 
+Meme:{"details":"They don't know that I have a masters in computer science"} 
 ###
 Message: "People think it's so important that they can do social media marketing
-{"details":"They don't know that I can do social media marketing"} 
+Meme:{"details":"They don't know that I can do social media marketing"} 
 ###
 Message: I don't know if you guys realized I can an write an App in ReactJS while also using the Django framework on the backend
-{"details":"They don't know that I can an write an App in ReactJS while also using the Django framework on the backend"}
+Meme:{"details":"They don't know that I can an write an App in ReactJS while also using the Django framework on the backend"}
 ###
 '''
     def create(self, meme_text):

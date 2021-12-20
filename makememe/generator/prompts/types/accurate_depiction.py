@@ -12,19 +12,19 @@ class Accurate_Depiction(Prompt):
         self.instruction = '''
 ###
 Message: They told me I am too interested in crypto currencies and they couldn't be more right
-{"depiction":"You are too interested in crypto currencies"}
+Meme:{"depiction":"You are too interested in crypto currencies"}
 ###
 Message: I had a fortune cookie tell me I code too much and It is so correct.
-{"depiction":"You code too much"}
+Meme:{"depiction":"You code too much"}
 ###
 Message: You want to hear an accurate depiction. I am not running enough.
-{"depiction":"You are not running enough"}
+Meme:{"depiction":"You are not running enough"}
 ###
 Message: They don't go outside enough. They need to get some sunlight. It's the truth
-{"depiction":"They need to go outside more"}
+Meme:{"depiction":"They need to go outside more"}
 ###
 Message: Humans making memes ok, AI making memes awesome.
-{"depiction":"You want AI making memes"}
+Meme:{"depiction":"You want AI making memes"}
 ###
 '''
 

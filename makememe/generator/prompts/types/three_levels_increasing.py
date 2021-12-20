@@ -4,33 +4,33 @@ from PIL import Image
 from makememe.generator.design.image_manager import Image_Manager
 
 
-class Three_Levels_Getting_Better(Prompt):
-    name = "Three_Levels_Getting_Better"
-    description = 'three levels getting better'
+class Three_Levels_Increasing(Prompt):
+    name = "Three_Levels_Increasing"
+    description = 'three levels increasing'
 
     def __init__(self):
         self.instruction = '''
 ###
 Message: This is somewhat exciting, that is more exciting, but THAT IS extremely exciting
-{"somewhat exciting":"this", "more exciting":"that", "extremely exciting":"THAT"}
+Meme:{"somewhat exciting":"this", "more exciting":"that", "extremely exciting":"THAT"}
 ###
 Message: Apples are cool, pears are very cool, but pineapples are the best
-{"somewhat exciting":"apples", "more exciting":"pears", "extremely exciting":"pineapples"}
+Meme:{"somewhat exciting":"apples", "more exciting":"pears", "extremely exciting":"pineapples"}
 ###
 Message: Going for a walk is nice and going for a jog is pretty good. Nothing is as good as running though!
-{"somewhat exciting":"going for a walk", "more exciting":"going for a jog", "extremely exciting":"going for a run"}
+Meme:{"somewhat exciting":"going for a walk", "more exciting":"going for a jog", "extremely exciting":"going for a run"}
 ###
 Message: Nothing is as cool as learning to code. Reading HTML is cool and learning about computers is ok.
-{"somewhat exciting":"learning about computers", "more exciting":"reading HTML", "extremely exciting":"learning to code"}
+Meme:{"somewhat exciting":"learning about computers", "more exciting":"reading HTML", "extremely exciting":"learning to code"}
 ###
 Message: Option 1 is somewhat exciting. Option 2 is more exciting. Option 3 is extremely exciting
-{"somewhat exciting":"Option 1", "more exciting":"Option 2", "extremely exciting":"Option 3"}
+Meme:{"somewhat exciting":"Option 1", "more exciting":"Option 2", "extremely exciting":"Option 3"}
 ###
 Message: break
-{"somewhat exciting":"break", "more exciting":"break", "extremely exciting":"break"}
+Meme:{"somewhat exciting":"break", "more exciting":"break", "extremely exciting":"break"}
 ###
 Message: It is great when users are enjoying the app we built
-{"somewhat exciting":"New users", "more exciting":"we built the app", "extremely exciting":"users are enjoying it"}
+Meme:{"somewhat exciting":"New users", "more exciting":"we built the app", "extremely exciting":"users are enjoying it"}
 ###
 '''
 

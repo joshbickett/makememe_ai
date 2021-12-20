@@ -12,22 +12,22 @@ class No_Responsibility(Prompt):
         self.instruction = '''
 ###
 Message: Company 1 is suing company 2 and neither thinks they are wrong
-{"party_one":"Company 1", "party_two":"company 2"}
+Meme:{"party_one":"Company 1", "party_two":"company 2"}
 ###
 Message: The shoemaker blames the sockmaker and the sockmaker blames the shoemaker
-{"party_one":"shoemaker", "party_two":"sockmaker"}
+Meme:{"party_one":"shoemaker", "party_two":"sockmaker"}
 ###
 Message: Coffee blames tea for not waking me up after I drink both
-{"party_one":"coffee blaming tea for not walking me up", "party_two":"tea"}
+Meme:{"party_one":"coffee blaming tea for not walking me up", "party_two":"tea"}
 ###
 Message: I can't do anything useful
-{"party_one":"me", "party_two":"me"}
+Meme:{"party_one":"me", "party_two":"me"}
 ###
 Message: break
-{"party_one":"break", "party_two":"break"}
+Meme:{"party_one":"break", "party_two":"break"}
 ###
 Message: tlest;laksd
-{"party_one":"test;laksd", "party_two":"test;laksd"}
+Meme:{"party_one":"test;laksd", "party_two":"test;laksd"}
 ###
 '''
 

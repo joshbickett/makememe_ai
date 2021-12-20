@@ -1,9 +1,9 @@
 import json
-from makememe.generator.prompts.types.dont_care import Dont_Care
+from makememe.generator.prompts.types.indifferent import Indifferent
 from makememe.generator.prompts.types.sad import Sad
 from makememe.generator.prompts.types.poor_fix import Poor_Fix
-from makememe.generator.prompts.types.they_dont_know import They_Dont_Know
-from makememe.generator.prompts.types.three_levels_getting_better import Three_Levels_Getting_Better
+from makememe.generator.prompts.types.dont_know import Dont_Know
+from makememe.generator.prompts.types.three_levels_increasing import Three_Levels_Increasing
 from makememe.generator.prompts.types.waiting import Waiting
 from makememe.generator.prompts.types.pompous import Pompous
 from makememe.generator.prompts.types.better import Better
@@ -12,7 +12,7 @@ from makememe.generator.prompts.types.ineffective_solution import Ineffective_So
 from makememe.generator.prompts.types.in_my_opinion import In_My_Opinion
 from makememe.generator.prompts.types.accurate_depiction import Accurate_Depiction
 from makememe.generator.prompts.types.equal_in_comparison import Equal_In_Comparison
-from makememe.generator.prompts.types.better_and_distracting import Better_And_Distracting
+from makememe.generator.prompts.types.distracting_from_current_focus import Distracting_From_Current_Focus
 from makememe.generator.langauge_models.gpt import GPT
 from flask_login import current_user
 from makememe.models import Users, Meme
@@ -34,7 +34,7 @@ def make(description):
             
             print('________start_________')
             try:
-                documents= ["sad", "don't care", "waiting", "they don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal in comparison", "better and distracting", "three levels getting better"]
+                documents= ["sad", "indifferent", "waiting", "don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal in comparison", "distracting from current focus", "three levels increasing"]
                 
                 testing = False
                 if testing:
@@ -52,11 +52,12 @@ def make(description):
                         if d["score"] > best_result["score"]:  
                             print("document: ", d["document"])
                             print("score: ", d["score"])
+                            print("meme: ", documents[best_result["index"]])
                             best_result["score"] = d["score"]
                             best_result["index"] = d["document"]
 
                     print("best_result: ", best_result)
-                    print("meme: ", documents[best_result["index"]])
+                    print("selected meme: ", documents[best_result["index"]])
                     meme_description = documents[best_result["index"]]
                 
                 nlp_output = meme_description
@@ -99,7 +100,7 @@ def make(description):
 
 def generate_meme(user_input, meme_description):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Dont_Care, Poor_Fix, Sad, Waiting, Better, Three_Levels_Getting_Better, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Better_And_Distracting]
+    memes = [Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Distracting_From_Current_Focus]
     for meme in memes:
         if meme_description == meme.description:
             testing = False

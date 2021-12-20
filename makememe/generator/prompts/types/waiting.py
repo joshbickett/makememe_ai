@@ -11,16 +11,16 @@ class Waiting(Prompt):
         self.instruction = '''
 ###
 Message: I've been waiting for SpaceX to launch the starship for ever
-{"waiting_on": "SpaceX Startship"}
+Meme:{"waiting_on": "SpaceX Startship"}
 ###
 Message: I can't wait for makememe.ai to launch, but it's taking a little while
-{"waiting_on": "makememe.ai"}
+Meme:{"waiting_on": "makememe.ai"}
 ###
 Message: Drakes new album is going to be fire. Why do I have to wait
-{"waiting_on": "Drakes new album"}
+Meme:{"waiting_on": "Drakes new album"}
 ###
 Message: I want to create an NFT, but opensea.com is taking a while to load
-{"waiting_on": "opensea.com"}
+Meme:{"waiting_on": "opensea.com"}
 ###
 '''
     def create(self, meme_text):

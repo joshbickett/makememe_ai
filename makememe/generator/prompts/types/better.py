@@ -12,40 +12,40 @@ class Better(Prompt):
         self.instruction = '''
 ###
 Message: I like coffee, but tea is much better
-{"worse":"coffee", "better":"tea"}
+Meme:{"worse":"coffee", "better":"tea"}
 ###
 Message: Dr. Dre is nothing compared to Kanye
-{"worse":"Dr. Dre", "better":"Kanye"}
+Meme:{"worse":"Dr. Dre", "better":"Kanye"}
 ###
 Message: I don't want a Honda, I want a Tesla
-{"worse":"Honda", "better":"Tesla"}
+Meme:{"worse":"Honda", "better":"Tesla"}
 ###
 Message: We don't need a new car, we need a new robot
-{"worse":"new car", "better":"new robot"}
+Meme:{"worse":"new car", "better":"new robot"}
 ###
 Message: Facebook is no good compared to Twitter
-{"worse":"Facebook", "better":"Twitter"}
+Meme:{"worse":"Facebook", "better":"Twitter"}
 ###
 Message: Dogs make you happy while cats make you sad
-{"worse":"cats", "better":"dogs"}
+Meme:{"worse":"cats", "better":"dogs"}
 ###
 Message: I love apples, while I don't care so much for oranges
-{"worse":"oranges","better":"apples"}
+Meme:{"worse":"oranges","better":"apples"}
 ###
 Message: Daft punk is the greatest, while U2 is not that good
-{"worse":"u2","better":"daft punk"}
+Meme:{"worse":"u2","better":"daft punk"}
 ###
 Message: Riding a bike on dirt is more fun than writing a bike on the street
-{"worse":"writing a bike on the street","better":"riding a bike on dirt"}
+Meme:{"worse":"writing a bike on the street","better":"riding a bike on dirt"}
 ###
 Message: Surfing in warm water is more enjoyable than surfing in cold water
-{"worse":"surfing in cold water","better":"surfing in warm water"}
+Meme:{"worse":"surfing in cold water","better":"surfing in warm water"}
 ###
 Message: Spending time on the internet to make people laugh is better then doing it to cause outrage
-{"worse":"Spending time on the internet to cause outrage","better":"Spending time on the internet to making people laugh"}
+Meme:{"worse":"Spending time on the internet to cause outrage","better":"Spending time on the internet to making people laugh"}
 ###
 Message: Humans making memes ok, AI making memes awesome.
-{"worse":"human making memes","better":"AI making memes"}
+Meme:{"worse":"human making memes","better":"AI making memes"}
 ###
 '''
 

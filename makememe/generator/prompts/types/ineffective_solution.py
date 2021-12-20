@@ -12,25 +12,25 @@ class Ineffective_Solution(Prompt):
         self.instruction = '''
 ###
 Message: There is a bunch of traffic in town. The government decided to make the roads wider, but that's not the problem
-{"attempted_solution":"more roads", "failure":"traffic"}
+Meme:{"attempted_solution":"more roads", "failure":"traffic"}
 ###
 Message: Some people who brush their hair still get messy hair.
-{"attempted_solution":"brush", "failure":"messy hair"}
+Meme:{"attempted_solution":"brush", "failure":"messy hair"}
 ###
 Message: I go for a walk daily, but then I end up eating a donut. Pretty ineffective
-{"attempted_solution":"walk daily", "failure":"eating a donut"}
+Meme:{"attempted_solution":"walk daily", "failure":"eating a donut"}
 ###
 Message: I drink coffee to be more awake, but then I can't sleep and I am tired the next day
-{"attempted_solution":"drink coffee", "failure":"can't sleep and I am tired the next day"}
+Meme:{"attempted_solution":"drink coffee", "failure":"can't sleep and I am tired the next day"}
 ###
 Message: I try to read a book to spend less time on my phone, but I end up googling concepts on my phone
-{"attempted_solution":"read a book to spend less time on my phone", "failure":"end up googling concepts on my phone"}
+Meme:{"attempted_solution":"read a book to spend less time on my phone", "failure":"end up googling concepts on my phone"}
 ###
 Message: bralkajsd;
-{"attempted_solution":"bralkajsd;", "failure":"bralkajsd;"}
+Meme:{"attempted_solution":"bralkajsd;", "failure":"bralkajsd;"}
 ###
 Message: I wish AI could help me make memes
-{"attempted_solution":"AI making memes", "failure":"The memes are beyond my sense of humor"}
+Meme:{"attempted_solution":"AI making memes", "failure":"The memes are beyond my sense of humor"}
 ###
 '''
 

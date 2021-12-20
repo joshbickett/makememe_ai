@@ -13,22 +13,22 @@ class Equal_In_Comparison(Prompt):
         self.instruction = '''
 ###
 Message: Tea and coffee are equally is good. They both make me happy
-{"first":"Tea", "second":"coffee"}
+Meme:{"first":"Tea", "second":"coffee"}
 ###
 Message: Both Dr. Dre and Kanye are amazing. I love them both
-{"first":"Dr. Dre", "second":"Kanye"}
+Meme:{"first":"Dr. Dre", "second":"Kanye"}
 ###
 Message: If I had to decide between Honda and Tesla I couldn't. They are both great.
-{"first":"Honda", "second":"Tesla"}
+Meme:{"first":"Honda", "second":"Tesla"}
 ###
 Message: Riding a bike on dirt is just as fun as riding on the street
-{"first":"writing a bike on the dirt","second":"writing a bike on the street"}
+Meme:{"first":"writing a bike on the dirt","second":"writing a bike on the street"}
 ###
 Message: Surfing in warm water is the same as surfing in cold water. They are equally fun
-{"first":"surfing in cold water","second":"surfing in warm water"}
+Meme:{"first":"surfing in cold water","second":"surfing in warm water"}
 ###
 Message: alsdjkfa
-{"first":"alsdjkfa","second":"alsdjkfa"}
+Meme:{"first":"alsdjkfa","second":"alsdjkfa"}
 ###
 '''
 

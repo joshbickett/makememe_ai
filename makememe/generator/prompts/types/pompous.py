@@ -12,19 +12,19 @@ class Pompous(Prompt):
         self.instruction = '''
 ###
 Message: People who run marathon think they are superior. Maybe that's the case
-{"action":"Running marathon"}
+Meme:{"action":"Running marathon"}
 ###
 Message: People who play chess seem to think they are better than people who play checkers
-{"action":"People who play chess"}
+Meme:{"action":"People who play chess"}
 ###
 Message: Coding gives people a feeling of being great
-{"action":"Coding"}
+Meme:{"action":"Coding"}
 ###
 Message: Shareholders that don't have to report to any managers and make money think it is great.
-{"action":"Not reporting to any managers"}
+Meme:{"action":"Not reporting to any managers"}
 ###
 Message: Being able to do a front flip makes people pompus
-{"action":"Being able to do a front flip"}
+Meme:{"action":"Being able to do a front flip"}
 ###
 '''
 

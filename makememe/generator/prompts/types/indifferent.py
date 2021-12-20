@@ -4,39 +4,39 @@ from PIL import Image
 from makememe.generator.design.image_manager import Image_Manager
 
 
-class Dont_Care(Prompt):
-    name = "Dont_Care"
-    description = "don't care"
+class Indifferent(Prompt):
+    name = "Indifferent"
+    description = "indifferent"
 
     def __init__(self):
         self.instruction = '''
 ###
 Message: Doesn't matter to me that facebook is buying oculus
-{"action":"Facebook buying oculus"}
+Meme:{"action":"Facebook buying oculus"}
 ###
 Message: I dislike going running, it is so much work.
-{"action":"Going running"}
+Meme:{"action":"Going running"}
 ###
 Message: Doing laundry is the worst, I really don't care for it
-{"action":"Doing laundry"}
+Meme:{"action":"Doing laundry"}
 ###
 Message: Some people cut in line and don't care about others
-{"action":""people cut in line"}
+Meme:{"action":""people cut in line"}
 ###
 Message: We should all wear sunscreen, but some people don't seem to care
-{"action":"wearing sunscreen"}
+Meme:{"action":"wearing sunscreen"}
 ###
 Message: Getting patents is sometimes important, but sometimes it is not at all
-{"action":"Getting patents is sometimes important"}
+Meme:{"action":"Getting patents is sometimes important"}
 ###
 Message: Make sure to always writing test before writing code
-{"action":"Make sure to always writing test before writing code"}
+Meme:{"action":"Make sure to always writing test before writing code"}
 ###
 Message: Break
-{"action":"Break"}
+Meme:{"action":"Break"}
 ###
 Message: I wish I could go to the moonb
-{"action":"going to the moon"}
+Meme:{"action":"going to the moon"}
 ###
 '''
 
