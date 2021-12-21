@@ -33,6 +33,10 @@ def home():
     
     return render_template('home.html', image_file=image_file, is_beta=is_beta, authenticated=authenticated)
 
+@app.route('/tutorial')
+def tutorial():
+    return render_template('tutorial.html', title='tutorial', authenticated=current_user.is_authenticated)
+
 @app.route('/about')
 def about():
     return render_template('about.html', title='about')
