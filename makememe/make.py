@@ -11,7 +11,7 @@ from makememe.generator.prompts.types.no_responsibility import No_Responsibility
 from makememe.generator.prompts.types.ineffective_solution import Ineffective_Solution
 from makememe.generator.prompts.types.in_my_opinion import In_My_Opinion
 from makememe.generator.prompts.types.accurate_depiction import Accurate_Depiction
-from makememe.generator.prompts.types.equal_in_comparison import Equal_In_Comparison
+from makememe.generator.prompts.types.equal import Equal
 from makememe.generator.prompts.types.distracting import Distracting
 from makememe.generator.langauge_models.gpt import GPT
 from flask_login import current_user
@@ -26,15 +26,15 @@ def make(description):
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
 
-        hit_limit = did_hit_limit()
-        # hit_limit = False
+        # hit_limit = did_hit_limit()
+        hit_limit = False
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
             
             print('________start_________')
             try:
-                documents= ["sad", "indifferent", "waiting", "don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal in comparison", "distracting", "three levels increasing"]
+                documents= ["sad", "indifferent", "waiting", "don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal", "distracting", "three levels increasing"]
                 
                 testing = False
                 if testing:
@@ -100,7 +100,7 @@ def make(description):
 
 def generate_meme(user_input, meme_description):
     print('________meme_prompt_________')
-    memes = [Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal_In_Comparison, Distracting]
+    memes = [Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal, Distracting]
     for meme in memes:
         if meme_description == meme.description:
             testing = False

@@ -5,9 +5,9 @@ from makememe.generator.prompts.helper import Helper
 from makememe.generator.design.image_manager import Image_Manager
 
 
-class Equal_In_Comparison(Prompt):
-    name = "Equal_In_Comparison"
-    description = "equal in comparison"
+class Equal(Prompt):
+    name = "Equal"
+    description = "equal"
 
     def __init__(self):
         self.instruction = '''
