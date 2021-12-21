@@ -12,22 +12,25 @@ class Poor_Fix(Prompt):
         self.instruction = '''
 ###
 Message: They government thinks it can print more money and it will solve our problems
-Meme:{"subject":"government", "action":"print more money"} 
+Meme:{"subject":"government", "action":"print more money"}
 ###
 Message: Startups will hire more software engineers and think it will fix everything
-Meme:{"subject":"startups", "action":"hire more software engineers"} 
+Meme:{"subject":"startups", "action":"hire more software engineers"}
 ###
 Message: Unproductive people will drink more coffee thinking that will make their work get done
-Meme:{"subject":"Unproductive people", "action":"drink more coffee"} 
+Meme:{"subject":"Unproductive people", "action":"drink more coffee"}
 ###
 Message: Stressed people will go for a run to help them feel better
-Meme:{"subject":"Stressed people", "action":"go for a run"} 
+Meme:{"subject":"Stressed people", "action":"go for a run"}
 ###
 Message: The government built a road when we needed a rail way
-Meme:{"subject":"government", "action":"built a road"} 
+Meme:{"subject":"government", "action":"built a road"}
 ###
 Message: as;dlfkja
-Meme:{"subject":"as;dlfkja", "action":"as;dlfkja"} 
+Meme:{"subject":"as;dlfkja", "action":"as;dlfkja"}
+###
+Message: Let's see if I can break this. I am going to ramble for a while and see what happens
+Meme:{"subject":"I am going to ramble", "action":"Let's see what happens."}
 ###
 '''
     def create(self, meme_text):
