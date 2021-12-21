@@ -84,7 +84,7 @@ def make(description):
         else: 
             nlp_output = 'limit hit'
             meme = {
-                'meme': 'meme_pics/limit_5.png'
+                'meme': 'meme_pics/limit_15.png'
             }
     else:
         nlp_output = 'flagged'
@@ -139,7 +139,7 @@ def did_hit_limit():
     now = datetime.now()
     day_ago = now - timedelta(hours=24)
     meme_count = Meme.query.filter(Meme.date_created > day_ago, Meme.user_id == current_user.id).count()
-    if meme_count > 5: 
+    if meme_count > 15:
         return True
     else: 
         return False
