@@ -5,9 +5,9 @@ from makememe.generator.prompts.helper import Helper
 from makememe.generator.design.image_manager import Image_Manager
 
 
-class Distracting_From_Current_Focus(Prompt):
-    name = "Distracting_From_Current_Focus"
-    description = 'distracting from current focus'
+class Distracting(Prompt):
+    name = "Distracting"
+    description = 'distracting'
 
     def __init__(self):
         self.instruction = '''
