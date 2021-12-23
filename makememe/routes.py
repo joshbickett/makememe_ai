@@ -15,8 +15,7 @@ def home():
         user = Users.query.filter_by(id=current_user.id).first()
         authenticated = True
         is_beta = user.is_beta
-        print("is_beta: ", is_beta)
-        if request.method == 'POST' and is_beta: 
+        if request.method == 'POST': 
             description = request.form['description']
             meme = make(description)
         else:
@@ -31,7 +30,7 @@ def home():
         }
     image_file = url_for('static', filename=meme['meme'])
     
-    return render_template('home.html', image_file=image_file, is_beta=is_beta, authenticated=authenticated)
+    return render_template('home.html', image_file=image_file, authenticated=authenticated)
 
 @app.route('/tutorial')
 def tutorial():
