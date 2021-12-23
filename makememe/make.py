@@ -2,7 +2,7 @@ import json
 from makememe.generator.prompts.types.indifferent import Indifferent
 from makememe.generator.prompts.types.sad import Sad
 from makememe.generator.prompts.types.poor_fix import Poor_Fix
-from makememe.generator.prompts.types.dont_know import Dont_Know
+from makememe.generator.prompts.types.they_dont_know import They_Dont_Know
 from makememe.generator.prompts.types.three_levels_increasing import Three_Levels_Increasing
 from makememe.generator.prompts.types.waiting import Waiting
 from makememe.generator.prompts.types.pompous import Pompous
@@ -34,7 +34,7 @@ def make(description):
             
             print('________start_________')
             try:
-                documents= ["sad", "indifferent", "waiting", "don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal", "distracting", "three levels increasing"]
+                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal", "distracting", "three levels increasing"]
                 
                 testing = False
                 if testing:
@@ -100,7 +100,7 @@ def make(description):
 
 def generate_meme(user_input, meme_description):
     print('________meme_prompt_________')
-    memes = [Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal, Distracting]
+    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal, Distracting]
     for meme in memes:
         if meme_description == meme.description:
             testing = False
