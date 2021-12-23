@@ -4,9 +4,9 @@ from PIL import Image
 from makememe.generator.design.image_manager import Image_Manager
 
 
-class Better(Prompt):
-    name = "Better"
-    description = "better"
+class Is_Better(Prompt):
+    name = "Is_Better"
+    description = "is better"
 
     def __init__(self):
         self.instruction = '''
