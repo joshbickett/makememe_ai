@@ -26,8 +26,8 @@ def make(description):
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
 
-        # hit_limit = did_hit_limit()
-        hit_limit = False
+        hit_limit = did_hit_limit()
+        # hit_limit = False
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
@@ -139,7 +139,7 @@ def did_hit_limit():
     now = datetime.now()
     day_ago = now - timedelta(hours=24)
     meme_count = Meme.query.filter(Meme.date_created > day_ago, Meme.user_id == current_user.id).count()
-    if meme_count > 15:
+    if meme_count > 20:
         return True
     else: 
         return False
