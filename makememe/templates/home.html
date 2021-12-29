@@ -46,10 +46,15 @@
         <div class="row pb-5">
             <div class="col-lg-2"></div>
             <div class="col-lg-8">
-
-                <div class="card rounded-3" >
-                    <img class="card-img-top" src="{{ image_file }}" alt="">
-                </div>
+                {% if (authenticated==False) %}
+                    <div class="card rounded-3" style="border: none;" >
+                        <iframe style="border: none; margin: 0 auto;" src="https://cards.producthunt.com/cards/posts/324801?v=1" width="500" height="405" frameborder="0" scrolling="no" allowfullscreen></iframe>
+                    </div>
+                {% else %}
+                    <div class="card rounded-3" >
+                        <img class="card-img-top" src="{{ image_file }}" alt="">
+                    </div>
+                {% endif %}
             </div>
             <div class="col-lg-2"></div>
         </div>
@@ -57,3 +62,4 @@
 </section>
 
 {% endblock content %}
+
