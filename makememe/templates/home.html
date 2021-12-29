@@ -23,19 +23,19 @@
                     
                     <div class="card-body">
                         {% if (authenticated==False) %}
-                            <p style="text-align: center;">Sign up to start making memes! Welcome to Launch Week 🎉</p>
+                            <p style="text-align: center;"><a href="{{ url_for('register') }}">Sign up</a> or <a href="{{ url_for('login') }}">login</a> to start making memes! Welcome to Launch Week 🎉</p>
+                        {% else %}
+                            <p style="text-align: center;">Welcome to Launch Week 🎉</p>
                         {% endif %}
                         <form method="POST">
-
-                            <div class="row gx-5 mb-3">
-                                <div class="col-md-12">
-                                    <textarea class="form-control" name="description" placeholder="Tell us about your meme" type="text" maxlength="100" required></textarea>
-                                </div>
-                            </div>
                             {% if (authenticated==True) %}
+                                <div class="row gx-5 mb-3">
+                                    <div class="col-md-12">
+                                        <textarea class="form-control" name="description" placeholder="Tell us about your meme" type="text" maxlength="100" required></textarea>
+                                    </div>
+                                </div>
+                            
                                 <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">MAKE MEME</button></div>
-                            {% else %}
-                                <div class="d-grid"><button class="btn btn-secondary btn-block" type="submit" disabled>MAKE MEME</button></div>
                             {% endif %}
                         </form>
                     </div>
