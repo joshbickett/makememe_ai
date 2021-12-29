@@ -53,9 +53,9 @@ Meme:{"neglected":"above memes", "subject":"you", "distraction":"memes below"}
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['neglected'], position=(75, 75), font_size=45, wrapped_width=12)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['distraction'], position=(75, 75), font_size=45, wrapped_width=12)
             overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(470, 75), font_size=45, wrapped_width=12)
-            overlay_image_3 = Image_Manager.add_text(base=base, text=meme_text['distraction'], position=(850, 75), font_size=45, wrapped_width=12)
+            overlay_image_3 = Image_Manager.add_text(base=base, text=meme_text['neglected'], position=(850, 75), font_size=45, wrapped_width=12)
             watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(10, 600), font_size=20)
 
             base = Image.alpha_composite(base, watermark)
