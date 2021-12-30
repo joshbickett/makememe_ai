@@ -20,8 +20,9 @@ from datetime import datetime, timedelta
 from sqlalchemy import Date, cast
 from makememe import db
 from better_profanity import profanity
+import sys, os
 
-def make(description):
+def make(description, user_id):
     user_input = description.strip()
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
@@ -31,7 +32,7 @@ def make(description):
 
         if hit_limit == False:
             print(f'user_input: {user_input}')
-            
+            print(f'user_id: ', user_id)
             print('________start_________')
             try:
                 documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "is better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal", "distracting", "three levels increasing"]
@@ -45,7 +46,7 @@ def make(description):
                         "index": -1, 
                         "score": 0
                     }
-                    response = GPT.search_request(documents, user_input)
+                    response = GPT.search_request(documents, user_input, user_id)
                     for d in response['data']: 
                         print("d: ", d)
                         
@@ -61,9 +62,12 @@ def make(description):
                     meme_description = documents[best_result["index"]]
                 
                 nlp_output = meme_description
-                meme = generate_meme(user_input, meme_description)
+                meme = generate_meme(user_input, meme_description, user_id)
             except Exception as e:
+                exc_type, exc_obj, exc_tb = sys.exc_info()
+                fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
                 print(f'error: {e}')
+                print(exc_type, fname, exc_tb.tb_lineno)
                 
                 nlp_output = 'error'
                 if isinstance(e.args[0], str): 
@@ -98,7 +102,7 @@ def make(description):
     return meme
 
 
-def generate_meme(user_input, meme_description):
+def generate_meme(user_input, meme_description, user_id):
     print('________meme_prompt_________')
     memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal, Distracting]
     for meme in memes:
@@ -112,12 +116,12 @@ def generate_meme(user_input, meme_description):
                 meme.append_example(user_input)
                 print(f'prompt: {meme.instruction}')
 
-                filter_no = GPT.content_filter(meme.instruction)['choices'][0]['text']
+                filter_no = GPT.content_filter(meme.instruction, user_id)['choices'][0]['text']
                 print("filter_no: ", filter_no)
                 if filter_no == '2':
                     raise Exception('The content has been flagged')
                 print('________meme_completion_________')
-                response = GPT.completion_request(meme.instruction)['choices'][0]['text'].strip()
+                response = GPT.completion_request(meme.instruction, user_id)['choices'][0]['text'].strip()
 
                 print(f'response:{response}')
                 response = json.loads(response)

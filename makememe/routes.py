@@ -17,7 +17,7 @@ def home():
         is_beta = user.is_beta
         if request.method == 'POST': 
             description = request.form['description']
-            meme = make(description)
+            meme = make(description, current_user.id)
         else:
             meme = {
                 'meme': 'meme_pics/default2.jpg',
