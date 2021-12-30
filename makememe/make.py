@@ -143,7 +143,7 @@ def did_hit_limit():
     now = datetime.now()
     day_ago = now - timedelta(hours=24)
     meme_count = Meme.query.filter(Meme.date_created > day_ago, Meme.user_id == current_user.id).count()
-    if meme_count > 20:
+    if meme_count > 15:
         return True
     else: 
         return False
