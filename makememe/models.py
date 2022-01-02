@@ -13,6 +13,7 @@ class Users(db.Model, UserMixin):
     image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
     password = db.Column(db.String(60), nullable=False)
     is_beta = db.Column(db.Boolean, default=False)
+    date_created = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     posts = db.relationship('Post', backref='author', lazy=True)
     memes = db.relationship('Meme', backref='creator', lazy=True)
     feedback = db.relationship('Feedback', backref='author', lazy=True)
