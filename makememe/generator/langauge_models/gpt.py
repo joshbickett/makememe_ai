@@ -29,7 +29,7 @@ class GPT:
 
     @staticmethod
     def search_request(documents, query, user_id):
-        d_url = 'https://api.openai.com/v1/engines/ada/search'
+        d_url = 'https://api.openai.com/v1/engines/babbage/search'
         payload = \
         {
             'documents': documents,
