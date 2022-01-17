@@ -26,6 +26,9 @@ Meme:{"depiction":"They need to go outside more"}
 Message: Humans making memes ok, AI making memes awesome.
 Meme:{"depiction":"You want AI making memes"}
 ###
+Message: make a meme with strong and weak doggo comparing two types of pots
+Meme:{"depiction":"strong and weak doggo comparing two types of pots"}
+###
 '''
 
     def create(self, meme_text):

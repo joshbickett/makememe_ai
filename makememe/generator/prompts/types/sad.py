@@ -34,6 +34,9 @@ Meme:{"sad_part": "You may never be able to go to the moon"}
 Message: Finding a swe internship is challenging.
 Meme:{"sad_part": "You may never find a SWE internship"}
 ###
+Message: Happy
+Meme:{"sad_part": "happy"}
+###
 '''
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:

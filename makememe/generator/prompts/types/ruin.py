@@ -20,6 +20,9 @@ Meme:{"subject":"halfway through a book", "ruiner":"new TV show you love comes o
 Message: Apple Music really can't keep up with Spotify's innovation
 Meme:{"subject":"Apple Music", "ruiner":"Spotify's innovation"}
 ###
+Message: a
+Meme:{"subject":"a", "ruiner":"a"}
+###
 Message: Getting rid of an accumulation of stuff I don't use is ruined by Christmas gifts
 Meme:{"subject":"Getting rid of an accumulation of stuff I don't use", "ruiner":"Christmas gifts"}
 ###

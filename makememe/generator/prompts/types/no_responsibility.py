@@ -29,6 +29,9 @@ Meme:{"party_one":"break", "party_two":"break"}
 Message: tlest;laksd
 Meme:{"party_one":"test;laksd", "party_two":"test;laksd"}
 ###
+Message: The code I wrote this week blames the code I wrote last week
+Meme:{"party_one":"The code I wrote this week", "party_two":"the code I wrote last week"}
+###
 '''
 
     def create(self, meme_text):
