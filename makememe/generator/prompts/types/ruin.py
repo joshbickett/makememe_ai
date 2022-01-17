@@ -17,6 +17,12 @@ Meme:{"subject":"Me getting good at a new library", "ruiner":"new library replac
 Message: When you're halfway through a book, but can't finish it because a new TV show you love comes out
 Meme:{"subject":"halfway through a book", "ruiner":"new TV show you love comes out"}
 ###
+Message: Apple Music really can't keep up with Spotify's innovation
+Meme:{"subject":"Apple Music", "ruiner":"Spotify's innovation"}
+###
+Message: Getting rid of an accumulation of stuff I don't use is ruined by Christmas gifts
+Meme:{"subject":"Getting rid of an accumulation of stuff I don't use", "ruiner":"Christmas gifts"}
+###
 '''
 
     def create(self, meme_text):
