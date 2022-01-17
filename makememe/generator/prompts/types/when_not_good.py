@@ -21,7 +21,7 @@ Meme:{"subject": "When you get a 4 year engineering degree and now can't remembe
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
             overlay_image = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(100, 50), font_size=45, wrapped_width=40)
-            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(10, 1000), font_size=20)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(10, 800), font_size=20)
 
             base = Image.alpha_composite(base, watermark)
             out = Image.alpha_composite(base, overlay_image)
