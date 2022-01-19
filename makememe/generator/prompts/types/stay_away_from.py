@@ -22,7 +22,7 @@ Meme:{"subject":"Tiktokers"}
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(115, 325), font_size=30, wrapped_width=18)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['subject'], position=(115, 300), font_size=30, wrapped_width=15)
             watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(10, 475), font_size=8)
         
             base = Image.alpha_composite(base, watermark)

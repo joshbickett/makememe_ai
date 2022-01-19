@@ -29,6 +29,9 @@ Meme:{"depiction":"You want AI making memes"}
 Message: make a meme with strong and weak doggo comparing two types of pots
 Meme:{"depiction":"strong and weak doggo comparing two types of pots"}
 ###
+Message: Too much coffee
+Meme:{"depiction":"You drink too much coffee"}
+###
 '''
 
     def create(self, meme_text):

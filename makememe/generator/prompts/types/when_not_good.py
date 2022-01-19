@@ -16,6 +16,12 @@ Meme:{"subject": "When all your friends are getting married and you've not been 
 Message: I got a 4 year engineering degree and now can't remember calculus.
 Meme:{"subject": "When you get a 4 year engineering degree and now can't remember calculus."}
 ###
+Message: It's not good that this new strain is spreading fast
+Meme:{"subject": "When the new strain is spreading fast"}
+###
+Message: When I have to run a full marathon, but I haven't trained for it.
+Meme:{"subject": "When I have to run a full marathon, but I haven't trained for it."}
+###
 '''
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
