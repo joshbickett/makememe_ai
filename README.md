@@ -20,14 +20,14 @@ Create a [virtual environment](https://docs.python.org/3/library/venv.html)
 python3 -m venv venv
 ```
 
-Install all packages into venv
-```
-pip install -r requirements.txt
-```
-
 Activate the environment 
 ```
 source venv/bin/activate
+```
+
+Install all packages into venv
+```
+pip install -r requirements.txt
 ```
 
 Run
