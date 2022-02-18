@@ -1,68 +1,103 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="bg-white">
-    <div class="container">
-        <div class="row py-5">
-            <div class="col-lg-3">
+  <div class="container">
+    <div class="row py-5">
+      <div class="col-lg-3"></div>
+      <div class="col-lg-6">
+        <div class="card rounded-3 text-dark">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-6">DESCRIBE YOUR MEME</div>
+              <div class="col-md-6">
+                <p
+                  class="w-25 text-light bg-info"
+                  style="
+                    border-radius: 5px;
+                    text-align: center;
+                    float: right;
+                    margin: 0;
+                  "
+                >
+                  Beta
+                </p>
+              </div>
+            </div>
+          </div>
 
-			</div>
-            <div class="col-lg-6">
-                <div class="card rounded-3 text-dark" >
-                    <div class="card-header">
-                        <div class="row">
-                            <div class="col-md-6">
-                                DESCRIBE YOUR MEME 
-                            </div>
-                            <div class="col-md-6">
-                                <p class="w-25 text-light bg-info" style="border-radius: 5px; text-align: center; float: right;margin:0;">Beta</p>
-                            </div>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="card-body">
-                        {% if (authenticated==False) %}
-                            <p style="text-align: center;"><a href="{{ url_for('register') }}">Sign up</a> or <a href="{{ url_for('login') }}">login</a> to start making memes! Welcome to Launch Month 🎉</p>
-                            <div style="text-align: center;">
-                                <a style="margin: 0 auto;" href="https://www.producthunt.com/posts/makememe-ai?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-makememe-ai" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=324801&theme=light&period=daily" alt="makememe.ai - Make a meme in under 5 seconds by providing a description | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
-                            </div>
-                        {% else %}
-                            <p style="text-align: center;">New memes are coming soon! 🤖</p>
-                        {% endif %}
-                        <form method="POST">
-                            {% if (authenticated==True) %}
-                                <div class="row gx-5 mb-3">
-                                    <div class="col-md-12">
-                                        <textarea class="form-control" name="description" placeholder="Tell us about your meme" type="text" maxlength="100" required></textarea>
-                                    </div>
-                                </div>
-                            
-                                <div class="d-grid"><button class="btn btn-primary btn-block" type="submit">MAKE MEME</button></div>
-                            {% endif %}
-                        </form>
-                    </div>
+          <div class="card-body">
+            {% if (authenticated==False) %}
+            <p style="text-align: center">
+              <a href="{{ url_for('register') }}">Sign up</a> or
+              <a href="{{ url_for('login') }}">login</a> to start making memes!
+              Welcome to Launch Month 🎉
+            </p>
+            <div style="text-align: center">
+              <a
+                style="margin: 0 auto"
+                href="https://www.producthunt.com/posts/makememe-ai?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-makememe-ai"
+                target="_blank"
+                ><img
+                  src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=324801&theme=light&period=daily"
+                  alt="makememe.ai - Make a meme in under 5 seconds by providing a description | Product Hunt"
+                  style="width: 250px; height: 54px"
+                  width="250"
+                  height="54"
+              /></a>
+            </div>
+            {% else %}
+            <p style="text-align: center">New memes are coming soon!! 🤖</p>
+            {% endif %}
+            <form method="POST">
+              {% if (authenticated==True) %}
+              <div class="row gx-5 mb-3">
+                <div class="col-md-12">
+                  <textarea
+                    class="form-control"
+                    name="description"
+                    placeholder="Tell us about your meme"
+                    type="text"
+                    maxlength="100"
+                    required
+                  ></textarea>
                 </div>
-            </div>
-            <div class="col-lg-3"></div>
+              </div>
+
+              <div class="d-grid">
+                <button class="btn btn-primary btn-block" type="submit">
+                  MAKE MEME
+                </button>
+              </div>
+              {% endif %}
+            </form>
+          </div>
         </div>
-        <div class="row pb-5">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                {% if (authenticated==False) %}
-                    <div class="card rounded-3" style="border: none;" >
-                        <iframe style="border: none; margin: 0 auto;" src="https://cards.producthunt.com/cards/posts/324801?v=1" width="500" height="405" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                    </div>
-                {% else %}
-                    <div class="card rounded-3" >
-                        <img class="card-img-top" src="{{ image_file }}" alt="">
-                    </div>
-                {% endif %}
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
+      </div>
+      <div class="col-lg-3"></div>
     </div>
+    <div class="row pb-5">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        {% if (authenticated==False) %}
+        <div class="card rounded-3" style="border: none">
+          <iframe
+            style="border: none; margin: 0 auto"
+            src="https://cards.producthunt.com/cards/posts/324801?v=1"
+            width="500"
+            height="405"
+            frameborder="0"
+            scrolling="no"
+            allowfullscreen
+          ></iframe>
+        </div>
+        {% else %}
+        <div class="card rounded-3">
+          <img class="card-img-top" src="{{ image_file }}" alt="" />
+        </div>
+        {% endif %}
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>
 </section>
 
 {% endblock content %}
-
