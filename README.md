@@ -11,7 +11,15 @@ You are welcome to fork this repo and make adjustments or contributions. If you 
 
 [![makememe.ai demo video](https://img.youtube.com/vi/wZ6KCDAcKws/0.jpg)](https://www.producthunt.com/posts/makememe-ai)
 
-## Setup
+# Setup the website locally
+
+There are three steps required to get the makememe.ai app to run on your computer. 
+
+1. Run flask server
+2. Install OpenAI Key
+3. Install and run Postgres server
+
+## 1. Run Flask Server 
 See the [code series](https://joshbickett.medium.com/making-memes-with-ai-db3332fc00ac) to learn more about the code base and how to contribute to the project. 
 
 Create a [virtual environment](https://docs.python.org/3/library/venv.html)
@@ -35,4 +43,19 @@ Run
 python run.py
 ```
 
+## 2. Install OpenAI Key
+
+## 3. Install and run Postgres server
+
+You will need to Postgres on your locally computer. If you are on Mac you can do so with the following [Homebrew command](https://formulae.brew.sh/formula/postgresql): 
+
+```
+brew install postgresql
+```
+
+Then start postgressql
+
+```
+brew services start postgresql
+```
 
