@@ -47,7 +47,9 @@ python run.py
 
 ## 3. Install and run Postgres server
 
-You will need to Postgres on your locally computer. If you are on Mac you can do so with the following [Homebrew command](https://formulae.brew.sh/formula/postgresql): 
+If you do not have Postgres installed, you will need to install it on you computer. 
+
+Mac users you can do so with the following [Homebrew command](https://formulae.brew.sh/formula/postgresql): 
 
 ```
 brew install postgresql
