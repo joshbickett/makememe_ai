@@ -9,7 +9,7 @@ from makememe.generator.prompts.types.pompous import Pompous
 from makememe.generator.prompts.types.is_better import Is_Better
 from makememe.generator.prompts.types.no_responsibility import No_Responsibility
 from makememe.generator.prompts.types.ineffective_solution import Ineffective_Solution
-from makememe.generator.prompts.types.in_my_opinion import In_My_Opinion
+from makememe.generator.prompts.types.change_my_mind import Change_My_Mind
 from makememe.generator.prompts.types.accurate_depiction import Accurate_Depiction
 from makememe.generator.prompts.types.equal import Equal
 from makememe.generator.prompts.types.distracting import Distracting
@@ -41,7 +41,7 @@ def make(description, user_id):
             print(f'user_id: ', user_id)
             print('________start_________')
             try:
-                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "is better", "poor fix", "no responsibility", "ineffective solution", "in my opinion", "accurate depiction", "equal", "distracting", "three levels increasing", "stay away from", "ruin", "scary", "strong preference", "completes", "when not good"]
+                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "is better", "poor fix", "no responsibility", "ineffective solution", "change my mind", "accurate depiction", "equal", "distracting", "three levels increasing", "stay away from", "ruin", "scary", "strong preference", "completes", "when not good"]
                 
                 testing = False
                 if testing:
@@ -110,7 +110,7 @@ def make(description, user_id):
 
 def generate_meme(user_input, meme_description, user_id):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, In_My_Opinion, Accurate_Depiction, Equal, Distracting, Stay_Away_From, Ruin, Scary, Strong_Preference, Completes, When_Not_Good]
+    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, Change_My_Mind, Accurate_Depiction, Equal, Distracting, Stay_Away_From, Ruin, Scary, Strong_Preference, Completes, When_Not_Good]
     for meme in memes:
         if meme_description == meme.description:
             testing = False
