@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Change_My_Mind(Prompt):
     name = "Change_My_Mind"
-    description = "In my opinion. Change my mind."
+    description = "This is my opinion. Change my mind."
 
     def __init__(self):
         self.instruction = '''
@@ -19,6 +19,9 @@ Meme:{"opinion":"Learning to code is one of the most rewarding experiences. Chan
 ###
 Message: Daft Punk is the greatest electronic band to ever exist and you can't convince me otherwise.
 Meme:{"opinion":"Daft Punk is the greatest electronic band to ever exist. Change my mind."}
+###
+Message: In my opinion, the best way to get a good grade in school is to study hard.
+Meme:{"opinion":"The best way to get a good grade in school is to study hard.. Change my mind."}
 ###
 '''
 
