@@ -3,25 +3,28 @@ import datetime
 from PIL import Image
 from makememe.generator.design.image_manager import Image_Manager
 
-class Completes(Prompt):
-    name = "Completes"
-    description = "completes"
+class Missing_Something(Prompt):
+    name = "Missing_Something"
+    description = "missing something"
 
     def __init__(self):
         self.instruction = '''
 ###
-Message: A good dessert makes me so happy
-Meme:{"pieces that completes": "a good desert"}
+Message: I miss going for long by the beach
+Meme:{"missing": "long runs by the beach"}
 ###
-Message: I feel so completed after a long run outside
-Meme:{"pieces that completes": "long run outside"}
+Message: I wish they didn't discontinue the show The Office
+Meme:{"missing": "new episodes of The Office"}
+###
+Message: I love the smell of a new car
+Meme:{"missing": "The smell of a brand new car"}
 ###
 '''
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['pieces that completes'], position=(700, 425), font_size=45, wrapped_width=12)
-            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(850, 1150), font_size=20)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['missing'], position=(5000, 550), font_size=50, wrapped_width=12)
+            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(100, 1150), text_color="white", font_size=25)
 
             base = Image.alpha_composite(base, watermark)
             out = Image.alpha_composite(base, overlay_image)

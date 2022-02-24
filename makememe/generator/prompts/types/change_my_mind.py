@@ -26,8 +26,8 @@ Meme:{"opinion":"Daft Punk is the greatest electronic band to ever exist. Change
 
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(400,1300), font_size=200, text_color="black", wrapped_width=22, rotate_degrees=357)
-            watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(25,5000), font_size=60, text_color="white")
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(190,200), font_size=60, text_color="black", wrapped_width=22, rotate_degrees=357)
+            watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(25,900), font_size=25, text_color="white")
 
             base = Image.alpha_composite(base, watermark)
             out = Image.alpha_composite(base, overlay_image)

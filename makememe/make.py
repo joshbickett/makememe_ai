@@ -17,7 +17,7 @@ from makememe.generator.prompts.types.stay_away_from import Stay_Away_From
 from makememe.generator.prompts.types.ruin import Ruin
 from makememe.generator.prompts.types.scary import Scary
 from makememe.generator.prompts.types.strong_preference import Strong_Preference
-from makememe.generator.prompts.types.completes import Completes
+from makememe.generator.prompts.types.missing_something import Missing_Something
 from makememe.generator.prompts.types.when_not_good import When_Not_Good
 from makememe.generator.langauge_models.gpt import GPT
 from flask_login import current_user
@@ -41,7 +41,7 @@ def make(description, user_id):
             print(f'user_id: ', user_id)
             print('________start_________')
             try:
-                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "is better", "poor fix", "no responsibility", "ineffective solution", "change my mind", "accurate depiction", "equal", "distracting", "three levels increasing", "stay away from", "ruin", "scary", "strong preference", "completes", "when not good"]
+                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "is better", "poor fix", "no responsibility", "ineffective solution", "change my mind", "accurate depiction", "equal", "distracting", "three levels increasing", "stay away from", "ruin", "scary", "strong preference", "missing something", "when not good"]
                 
                 testing = False
                 if testing:
@@ -110,7 +110,7 @@ def make(description, user_id):
 
 def generate_meme(user_input, meme_description, user_id):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, Change_My_Mind, Accurate_Depiction, Equal, Distracting, Stay_Away_From, Ruin, Scary, Strong_Preference, Completes, When_Not_Good]
+    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Three_Levels_Increasing, Pompous, No_Responsibility, Ineffective_Solution, Change_My_Mind, Accurate_Depiction, Equal, Distracting, Stay_Away_From, Ruin, Scary, Strong_Preference, Missing_Something, When_Not_Good]
     for meme in memes:
         if meme_description == meme.description:
             testing = False
