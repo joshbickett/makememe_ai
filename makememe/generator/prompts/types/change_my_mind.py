@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Change_My_Mind(Prompt):
     name = "Change_My_Mind"
-    description = "change my mind"
+    description = "In my opinion. Change my mind."
 
     def __init__(self):
         self.instruction = '''
@@ -26,7 +26,7 @@ Meme:{"opinion":"Daft Punk is the greatest electronic band to ever exist. Change
 
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(190,200), font_size=60, text_color="black", wrapped_width=22, rotate_degrees=357)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['opinion'], position=(190,200), font_size=60, text_color="black", wrapped_width=22)
             watermark = Image_Manager.add_text(base=base, text="makememe.ai", position=(25,900), font_size=25, text_color="white")
 
             base = Image.alpha_composite(base, watermark)

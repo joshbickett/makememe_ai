@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Strong_Preference(Prompt):
     name = "Strong_Preference"
-    description = 'strong preference'
+    description = 'The subject has a strong preference for one option over another'
 
     def __init__(self):
         self.instruction = '''
@@ -16,6 +16,9 @@ Meme:{"subject":"programmers", "less preferred":"print statements", "more prefer
 ###
 Message: I like running outside more than running in a Gym
 Meme:{"subject":"runners", "less preferred":"running outside", "more preferred":"running in a gym"}
+###
+Message: I prefer this option greatly over that option
+Meme:{"subject":"me", "less preferred":"running outside", "more preferred":"running in a gym"}
 ###
 '''
 
