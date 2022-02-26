@@ -1,156 +1,197 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <section class="bg-white">
-    <div class="container">
-        <div class="row mt-5 mb-3">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        DEMO
-                    </div>
-                    <div class="card-body">
-                        <div class="card rounded-3" style="border: none;" >
-                            <iframe style="border: none; margin: 0 auto;" src="https://cards.producthunt.com/cards/posts/324801?v=1" width="500" height="405" frameborder="0" scrolling="no" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
+  <div class="container">
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">DEMO</div>
+          <div class="card-body">
+            <div class="card rounded-3" style="border: none">
+              <iframe
+                style="border: none; margin: 0 auto"
+                src="https://cards.producthunt.com/cards/posts/324801?v=1"
+                width="500"
+                height="405"
+                frameborder="0"
+                scrolling="no"
+                allowfullscreen
+              ></iframe>
             </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div class="row mt-5 mb-3">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        TUTORIAL
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Describe your meme</h5>
-                        <p class="card-text">Provide a descriptive statement for the AI to transform into a meme.</p>
-                        <p class="card-text"><b>Input:</b> <i>"In my opinion memes are a great way to spread ideas."</i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-    
-                    <div class="card rounded-3" >
-                        <img class="card-img-top" src="http://makememe.ai/static/creations/2021-12-21%2007:24:12.654408.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-        <div class="row mt-5 mb-3">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        EXAMPLE #1
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Make a comparison with one idea as preferred</h5>
-                        <p class="card-text"><b>Input:</b> <i>"A world with memes is better than a world without memes"</i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-    
-                    <div class="card rounded-3" >
-                        <img class="card-img-top" src="http://makememe.ai/static/creations/2021-12-21%2007:14:29.532712.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-        <div class="row mt-5 mb-3">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        EXAMPLE #2
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Make a comparison with two ideas as the same</h5>
-                        <p class="card-text"><b>Input:</b> <i>"The Office is the same as Parks and Recreation"</i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-    
-                    <div class="card rounded-3" >
-                        <img class="card-img-top" src="http://makememe.ai/static/creations/2021-12-21%2007:34:28.204512.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-        <div class="row mt-5 mb-3">
-            <div class="col-lg-2"></div>
-            <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        EXAMPLE #3
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Play around with different inputs and have fun.</h5>
-                        <p class="card-text"><b>Input:</b> <i>"The code we wrote last week is blaming the code we wrote this week"</i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-2"></div>
-        </div>
-        <div>
-            <div class="row">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-8">
-    
-                    <div class="card rounded-3" >
-                        <img class="card-img-top" src="http://makememe.ai/static/creations/2021-12-21%2007:40:09.330393.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-2"></div>
-            </div>
-        </div>
-        <div class="row mt-5 mb-3">
-          <div class="col-lg-2"></div>
-          <div class="col-lg-8">
-              <div class="card">
-                  <div class="card-header">
-                      LAST THOUGHTS
-                  </div>
-                  <div class="card-body">
-                      <h5 class="card-title">Let us know how we can improve</h5>
-                      {% if authenticated %}
-                          <p class="card-text">We hope you can laugh at the AI's failed attempts to make memes as much as when it makes good memes. We are looking to improve. Please share any feedback on our <a href="{{ url_for('feedback') }}">Feedback</a> page.</p>
-                      {% else %}
-                          <p class="card-text">We hope you can laugh at the AI's failed attempts to make memes as much as when it makes good memes. We are looking to improve. Please share any feedback on our Feedback page.</p>
-                      {% endif %}
-                      <p class="card-text">If you'd like to work on the project and make the AI meme generator better, reach out to me at <a href="mailto:josh@makememe.ai">josh@makememe.ai</a></p>
-                  </div>
-                
-              </div>
           </div>
-          <div class="col-lg-2"></div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">TUTORIAL</div>
+          <div class="card-body">
+            <h5 class="card-title">Describe your meme</h5>
+            <p class="card-text">
+              Provide a descriptive statement for the AI to transform into a
+              meme.
+            </p>
+            <p class="card-text">
+              <b>Input:</b>
+              <i>"In my opinion memes are a great way to spread ideas."</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="card rounded-3">
+            <img
+              class="card-img-top"
+              src="{{ url_for('static', filename='tutorial_pics/tutorial-1.png') }}"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
       </div>
     </div>
-      
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">EXAMPLE #1</div>
+          <div class="card-body">
+            <h5 class="card-title">
+              Make a comparison with one idea as preferred
+            </h5>
+            <p class="card-text">
+              <b>Input:</b>
+              <i>"A world with memes is better than a world without memes"</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="card rounded-3">
+            <img
+              class="card-img-top"
+              src="{{ url_for('static', filename='tutorial_pics/tutorial-2.png') }}"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">EXAMPLE #2</div>
+          <div class="card-body">
+            <h5 class="card-title">
+              Make a comparison with two ideas as the same
+            </h5>
+            <p class="card-text">
+              <b>Input:</b>
+              <i>"The Office is the same as Parks and Recreation"</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="card rounded-3">
+            <img
+              class="card-img-top"
+              src="{{ url_for('static', filename='tutorial_pics/tutorial-3.png') }}"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">EXAMPLE #3</div>
+          <div class="card-body">
+            <h5 class="card-title">
+              Play around with different inputs and have fun.
+            </h5>
+            <p class="card-text">
+              <b>Input:</b>
+              <i
+                >"The code we wrote last week is blaming the code we wrote this
+                week"</i
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+    <div>
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+          <div class="card rounded-3">
+            <img
+              class="card-img-top"
+              src="{{ url_for('static', filename='tutorial_pics/tutorial-4.png') }}"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+    <div class="row mt-5 mb-3">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">LAST THOUGHTS</div>
+          <div class="card-body">
+            <h5 class="card-title">Let us know how we can improve</h5>
+            {% if authenticated %}
+            <p class="card-text">
+              We hope you can laugh at the AI's failed attempts to make memes as
+              much as when it makes good memes. We are looking to improve.
+              Please share any feedback on our
+              <a href="{{ url_for('feedback') }}">Feedback</a> page.
+            </p>
+            {% else %}
+            <p class="card-text">
+              We hope you can laugh at the AI's failed attempts to make memes as
+              much as when it makes good memes. We are looking to improve.
+              Please share any feedback on our Feedback page.
+            </p>
+            {% endif %}
+            <p class="card-text">
+              If you'd like to work on the project and make the AI meme
+              generator better, reach out to me at
+              <a href="mailto:josh@makememe.ai">josh@makememe.ai</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2"></div>
+    </div>
+  </div>
 </section>
 
 {% endblock content %}
