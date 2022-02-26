@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Ineffective_Solution(Prompt):
     name = "Ineffective_Solution"
-    description = "ineffective solution"
+    description = "the solution was a poor way of doing it"
 
     def __init__(self):
         self.instruction = '''
