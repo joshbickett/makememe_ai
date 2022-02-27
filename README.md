@@ -16,11 +16,11 @@ You are welcome to fork this repo and make adjustments or contributions. If you 
 
 There are three steps required to get the makememe.ai app to run on your computer. If you are not familiar with the technology stack I highly recommend [Corey Schafer's](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) Youtube series on [Python Flask Tutorial: Full-Featured Web App](https://www.youtube.com/watch?v=MwZwr5Tvyxo). The series goes over Flask and Postgres in detail. To learn more about the AI, I recommend reading my Medium post How To Make Memes with AI in Python (coming soon).
 
-1. Run Flas server
+1. Setup the Flask server
 2. Install OpenAI Key
 3. Install and run Postgres server
 
-## 1. Run Flask Server
+## 1. Setup the Flask Server
 
 See the [code series](https://joshbickett.medium.com/making-memes-with-ai-db3332fc00ac) to learn more about the code base and how to contribute to the project.
 
@@ -42,17 +42,13 @@ Install all packages into venv
 pip3 install -r requirements.txt
 ```
 
-Run
-
-```
-python run.py
-```
+If you are curious if this worked, you can try the following command `python run.py` and then go to `http://127.0.0.1:5000/`. You should see the app. The meme creation functionality will not work until you complete the remaining steps.
 
 ## 2. Install and run Postgres server
 
 If you do not have Postgres installed, you will need to install it on you computer.
 
-Homebrew is also required to install Postgres. Homebrew's [webpage](https://brew.sh/) has a tutorial.
+Homebrew can help install Postgres. If you need to install Homebrew their [webpage](https://brew.sh/) has a tutorial.
 
 Mac users you can install Postgres with the following [Homebrew command](https://formulae.brew.sh/formula/postgresql):
 
@@ -80,9 +76,9 @@ createdb makememe
 
 The next few commands need to be executed in the project directory. If you are not in that directory, please navigate there now with the (cd - change directory command).
 
-Once you are in the project directory, make sure the virtual environment is activated (should show (venv) next to terminal user). If not activate it with the command - source venv/bin/activate
+Once you are in the project directory, make sure the virtual environment is activated (should show (venv) next to terminal user). If not, activate it with the command `source venv/bin/activate`
 
-Now open the python terminal by typing the command below
+Now open the python terminal by typing the command below.
 
 ```
 python
@@ -112,15 +108,15 @@ The first step is to create the following file (with a matching directory path).
 /etc/make_meme/config.json
 ```
 
-Once the file is created, populate it with some information.
+Once the file is created, we populate it with some information.
 
 Flask requires a secret key to sign cookies. You can learn more about it [here](https://explore-flask.readthedocs.io/en/latest/configuration.html).
 
-OpenAI provides a key when receive access to the API. The local project uses your key when making OpenAI API request. The request and billing will show up under your account. Assuming you are running the project for testing and development reasons, the cost should be small.
+OpenAI provides a key when developers receive access to the API. The local project uses your key when making OpenAI API request. The request and billing will show up under your account. Assuming you are running the project for testing and development reasons, the cost should be small.
 
 The project also requires a file with font information. It uses that font to display the text on the image.
 
-Lastly, a database URI for Postgres is required. This information should be available from the setup in step 2.
+Lastly, a database URI for Postgres is required. The Postgres user information will need to be entered into the URI.
 
 ```
 {
