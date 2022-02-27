@@ -48,7 +48,27 @@ Run
 python run.py
 ```
 
-## 2. Install OpenAI Key
+## 2. Create Config file that includes an OpenAI Key
+
+In order to run the project locally it is required to have OpenAI GPT-3 access. Follow the steps below to setup the project to use your OpenAI key. When you run the project locally the OpenAI API request will be made with your key. The request and billing will show up under your account. Assuming you are running the project locally for testing and development reasons, the cost should be low.
+
+The first step is to create the following file (with a matching directory path).
+
+```
+/etc/make_meme/config.json
+```
+
+Once the file is created, populate it with your OpenAI key, a path to a font, and a DB URI.
+
+```
+{
+        "OPEN_AI_KEY": "~your key~",
+        "FONT_PATH": "/System/Library/Fonts/SFNSMono.ttf",
+        "DB_URI": "~your Postgres URI~"
+}
+```
+
+Once this file is created, then the project's code will refer to it.
 
 ## 3. Install and run Postgres server
 
