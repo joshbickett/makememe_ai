@@ -48,29 +48,7 @@ Run
 python run.py
 ```
 
-## 2. Create Config file that includes an OpenAI Key
-
-In order to run the project locally it is required to have OpenAI GPT-3 access. Follow the steps below to setup the project to use your OpenAI key. When you run the project locally the OpenAI API request will be made with your key. The request and billing will show up under your account. Assuming you are running the project locally for testing and development reasons, the cost should be low.
-
-The first step is to create the following file (with a matching directory path).
-
-```
-/etc/make_meme/config.json
-```
-
-Once the file is created, populate it with your OpenAI key, a path to a font, and a DB URI.
-
-```
-{
-        "OPEN_AI_KEY": "~your key~",
-        "FONT_PATH": "/System/Library/Fonts/SFNSMono.ttf",
-        "DB_URI": "~your Postgres URI~"
-}
-```
-
-Once this file is created, then the project's code will refer to it.
-
-## 3. Install and run Postgres server
+## 2. Install and run Postgres server
 
 If you do not have Postgres installed, you will need to install it on you computer.
 
@@ -118,19 +96,50 @@ db.create_all()
 db.session.commit()
 ```
 
-Now you can exit. The project should be ready to run and try out~
+Now you can exit.
 
 ```
 exit()
 ```
 
-You may need to start and restart the Flask server with the command below.
+## 3. Create Config file that includes an OpenAI Key
+
+In order to run the project locally a few pieces of information need to be setup in a config file. Follow the steps below to setup prepare the project.
+
+The first step is to create the following file (with a matching directory path).
+
+```
+/etc/make_meme/config.json
+```
+
+Once the file is created, populate it with some information.
+
+Flask requires a secret key to sign cookies. You can learn more about it [here](https://explore-flask.readthedocs.io/en/latest/configuration.html).
+
+OpenAI provides a key when receive access to the API. The local project uses your key when making OpenAI API request. The request and billing will show up under your account. Assuming you are running the project for testing and development reasons, the cost should be small.
+
+The project also requires a file with font information. It uses that font to display the text on the image.
+
+Lastly, a database URI for Postgres is required. This information should be available from the setup in step 2.
+
+```
+{
+        "SECRET_KEY": "~a Flask secret key here~",
+        "OPEN_AI_KEY": "~your key~",
+        "FONT_PATH": "~path to a font~",
+        "DB_URI": "~your Postgres URI~"
+}
+```
+
+Once this file is created then the project should be ready to run..
+
+Navigate to the project directory and make sure the virtual environment is running (venv). Type the command below.
 
 ```
 python run.py
 ```
 
-Now you can enter the local server URL (below) in your web browser and you should see the webpage.
+Now you can enter the local server URL (below) in your web browser and you should see the app.
 
 ```
 http://127.0.0.1:5000/
