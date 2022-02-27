@@ -17,8 +17,8 @@ You are welcome to fork this repo and make adjustments or contributions. If you 
 There are three steps required to get the makememe.ai app to run on your computer. If you are not familiar with the technology stack I highly recommend [Corey Schafer's](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) Youtube series on [Python Flask Tutorial: Full-Featured Web App](https://www.youtube.com/watch?v=MwZwr5Tvyxo). The series goes over Flask and Postgres in detail. To learn more about the AI, I recommend reading my Medium post How To Make Memes with AI in Python (coming soon).
 
 1. Setup the Flask server
-2. Install OpenAI Key
-3. Install and run Postgres server
+2. Install and run Postgres server
+3. Create Config file that includes an OpenAI Key
 
 ## 1. Setup the Flask Server
 
