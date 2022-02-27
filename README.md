@@ -39,7 +39,7 @@ source venv/bin/activate
 Install all packages into venv
 
 ```
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 Run
