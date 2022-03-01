@@ -4,6 +4,8 @@ In the app, users create a memes in under 5 seconds by describing it with natura
 
 You are welcome to fork this repo and make adjustments or contributions. If you fork or clone the repo, it is first required to review OpenAI's [go live policy](https://beta.openai.com/docs/going-live). You will need your own access and key in order to contribute.
 
+If you have any technical or other questions, you can reach out to me at josh@makememe.ai. I am happy to answer questions and walk through how the project works.  
+
 ## [The Site](http://makememe.ai/)
 
 <img src="media/makememe-homepage.png" width="600" alt="makememe.ai home page"></img>
@@ -14,15 +16,13 @@ You are welcome to fork this repo and make adjustments or contributions. If you 
 
 # Setup the website locally
 
-There are three steps required to get the makememe.ai app to run on your computer. If you are not familiar with the technology stack I highly recommend [Corey Schafer's](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) Youtube series on [Python Flask Tutorial: Full-Featured Web App](https://www.youtube.com/watch?v=MwZwr5Tvyxo). The series goes over Flask and Postgres in detail. To learn more about the AI, I recommend reading my Medium post How To Make Memes with AI in Python (coming soon).
+There are three steps required to get the makememe.ai app to run on your computer. If you are not familiar with the technology stack I highly recommend [Corey Schafer's](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) Youtube series on [Python Flask Tutorial: Full-Featured Web App](https://www.youtube.com/watch?v=MwZwr5Tvyxo). The series goes over Flask and Postgres in detail. To learn more about the AI system, I recommend reading my Medium post [How To Make Memes with AI in Python](https://towardsdatascience.com/how-to-make-memes-with-ai-in-python-986944bce5b4).
 
 1. Setup the Flask server
-2. Install and run Postgres server
+2. Install and run Postgres
 3. Create Config file that includes an OpenAI Key
 
 ## 1. Setup the Flask Server
-
-See the [code series](https://joshbickett.medium.com/making-memes-with-ai-db3332fc00ac) to learn more about the code base and how to contribute to the project.
 
 Create a [virtual environment](https://docs.python.org/3/library/venv.html)
 
@@ -44,7 +44,7 @@ pip3 install -r requirements.txt
 
 If you are curious if this worked, you can try the following command `python run.py` and then go to `http://127.0.0.1:5000/`. You should see the app. The meme creation functionality will not work until you complete the remaining steps.
 
-## 2. Install and run Postgres server
+## 2. Install and run Postgres
 
 If you do not have Postgres installed, you will need to install it on you computer.
 
