@@ -1,6 +1,6 @@
 # [makememe.ai](http://makememe.ai/)
 
-In the app, users create a memes in under 5 seconds by describing it with natural language. This open-source project is a fun way for software developers to learn about AI and Python development.
+In the app, users create memes in under 5 seconds by describing them with natural language. This open-source project is a fun way for software developers to learn about AI and Python development.
 
 You are welcome to fork this repo and make adjustments or contributions. If you fork or clone the repo, it is first required to review OpenAI's [go live policy](https://beta.openai.com/docs/going-live). You will need your own access and key in order to contribute.
 
