@@ -74,7 +74,7 @@ Now we can create the database for the application with the command below
 createdb makememe
 ```
 
-The next few commands need to be executed in the project directory. If you are not in that directory, please navigate there now with the (cd - change directory command).
+The next few commands need to be executed in the project directory. If you are not in that directory, please navigate there now (cd - change directory command).
 
 Once you are in the project directory, make sure the virtual environment is activated (should show (venv) next to terminal user). If not, activate it with the command `source venv/bin/activate`
 
