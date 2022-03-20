@@ -29,7 +29,8 @@ from better_profanity import profanity
 import sys, os
 
 def make(description, user_id):
-    user_input = description.strip()
+    
+    user_input = description.strip().replace('\r\n', ', ')
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
 
