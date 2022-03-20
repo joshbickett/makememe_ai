@@ -19,7 +19,7 @@ from makememe.generator.prompts.types.scary import Scary
 from makememe.generator.prompts.types.strong_preference import Strong_Preference
 from makememe.generator.prompts.types.missing_something import Missing_Something
 from makememe.generator.prompts.types.when_not_good import When_Not_Good
-from makememe.generator.langauge_models.gpt import GPT
+from makememe.generator.nlp.gpt import GPT
 from flask_login import current_user
 from makememe.models import Users, Meme
 from datetime import datetime, timedelta
