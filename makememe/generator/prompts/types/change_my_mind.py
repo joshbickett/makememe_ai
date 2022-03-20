@@ -11,16 +11,16 @@ class Change_My_Mind(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: Chocolate chip cookies are the best cookies. Try to change my mind.
+Message:Chocolate chip cookies are the best cookies. Try to change my mind.
 Meme:{"opinion":" Chocolate chip cookies are the best cookies. Change my mind."}
 ###
-Message: Learning to code is one of the most rewarding experiences. Change my mind.
+Message:Learning to code is one of the most rewarding experiences. Change my mind.
 Meme:{"opinion":"Learning to code is one of the most rewarding experiences. Change my mind."}
 ###
-Message: Daft Punk is the greatest electronic band to ever exist and you can't convince me otherwise.
+Message:Daft Punk is the greatest electronic band to ever exist and you can't convince me otherwise.
 Meme:{"opinion":"Daft Punk is the greatest electronic band to ever exist. Change my mind."}
 ###
-Message: In my opinion, the best way to get a good grade in school is to study hard.
+Message:In my opinion, the best way to get a good grade in school is to study hard.
 Meme:{"opinion":"The best way to get a good grade in school is to study hard.. Change my mind."}
 ###
 '''

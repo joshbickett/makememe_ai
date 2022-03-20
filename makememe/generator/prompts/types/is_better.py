@@ -11,41 +11,44 @@ class Is_Better(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: I like coffee, but tea is much better
+Message:I like coffee, but tea is much better
 Meme:{"worse":"coffee", "better":"tea"}
 ###
-Message: Dr. Dre is nothing compared to Kanye
+Message:Dr. Dre is nothing compared to Kanye
 Meme:{"worse":"Dr. Dre", "better":"Kanye"}
 ###
-Message: I don't want a Honda, I want a Tesla
+Message:I don't want a Honda, I want a Tesla
 Meme:{"worse":"Honda", "better":"Tesla"}
 ###
-Message: We don't need a new car, we need a new robot
+Message:We don't need a new car, we need a new robot
 Meme:{"worse":"new car", "better":"new robot"}
 ###
-Message: Facebook is no good compared to Twitter
+Message:Facebook is no good compared to Twitter
 Meme:{"worse":"Facebook", "better":"Twitter"}
 ###
-Message: Dogs make you happy while cats make you sad
+Message:Dogs make you happy while cats make you sad
 Meme:{"worse":"cats", "better":"dogs"}
 ###
-Message: I love apples, while I don't care so much for oranges
+Message:I love apples, while I don't care so much for oranges
 Meme:{"worse":"oranges","better":"apples"}
 ###
-Message: Daft punk is the greatest, while U2 is not that good
+Message:Daft punk is the greatest, while U2 is not that good
 Meme:{"worse":"u2","better":"daft punk"}
 ###
-Message: Riding a bike on dirt is more fun than writing a bike on the street
+Message:Riding a bike on dirt is more fun than writing a bike on the street
 Meme:{"worse":"writing a bike on the street","better":"riding a bike on dirt"}
 ###
-Message: Surfing in warm water is more enjoyable than surfing in cold water
+Message:Surfing in warm water is more enjoyable than surfing in cold water
 Meme:{"worse":"surfing in cold water","better":"surfing in warm water"}
 ###
-Message: Spending time on the internet to make people laugh is better then doing it to cause outrage
+Message:Spending time on the internet to make people laugh is better then doing it to cause outrage
 Meme:{"worse":"Spending time on the internet to cause outrage","better":"Spending time on the internet to making people laugh"}
 ###
-Message: Humans making memes ok, AI making memes awesome.
+Message:Humans making memes ok, AI making memes awesome.
 Meme:{"worse":"human making memes","better":"AI making memes"}
+###
+Message:better
+Meme:{"worse":"better","better":"better 2.0"}
 ###
 '''
 

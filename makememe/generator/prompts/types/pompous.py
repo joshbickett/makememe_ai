@@ -11,25 +11,25 @@ class Pompous(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: People who run marathon think they are superior. Maybe that's the case
+Message:People who run marathon think they are superior. Maybe that's the case
 Meme:{"subject":"Running marathon"}
 ###
-Message: People who play chess seem to think they are better than people who play checkers
+Message:People who play chess seem to think they are better than people who play checkers
 Meme:{"subject":"People who play chess"}
 ###
-Message: Coding gives people a feeling of being great
+Message:Coding gives people a feeling of being great
 Meme:{"subject":"Coding"}
 ###
-Message: Shareholders that don't have to report to any managers and make money think it is great.
+Message:Shareholders that don't have to report to any managers and make money think it is great.
 Meme:{"subject":"Not reporting to any managers"}
 ###
-Message: Being able to do a front flip makes people pompus
+Message:Being able to do a front flip makes people pompus
 Meme:{"subject":"Being able to do a front flip"}
 ###
-Message: That was fun, but now I need to learn how to ride a bicycle
+Message:That was fun, but now I need to learn how to ride a bicycle
 Meme:{"subject":"Riding sa bicycle"}
 ###
-Message: Using a drip coffee system works, but have you tried using a french press??
+Message:Using a drip coffee system works, but have you tried using a french press??
 Meme:{"subject":"using a french press"}
 ###
 '''

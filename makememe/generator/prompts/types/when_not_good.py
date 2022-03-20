@@ -10,16 +10,16 @@ class When_Not_Good(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: When all your friends are getting married and you've not been on a date.
+Message:When all your friends are getting married and you've not been on a date.
 Meme:{"subject": "When all your friends are getting married and you've not been on a date."}
 ###
-Message: I got a 4 year engineering degree and now can't remember calculus.
+Message:I got a 4 year engineering degree and now can't remember calculus.
 Meme:{"subject": "When you get a 4 year engineering degree and now can't remember calculus."}
 ###
-Message: It's not good that this new strain is spreading fast
+Message:It's not good that this new strain is spreading fast
 Meme:{"subject": "When the new strain is spreading fast"}
 ###
-Message: When I have to run a full marathon, but I haven't trained for it.
+Message:When I have to run a full marathon, but I haven't trained for it.
 Meme:{"subject": "When I have to run a full marathon, but I haven't trained for it."}
 ###
 '''

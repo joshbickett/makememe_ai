@@ -11,10 +11,10 @@ class Scary(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: React Navtive scares me more than any other library I've ever used.
+Message:React Navtive scares me more than any other library I've ever used.
 Meme:{"subject":"React Native"}
 ###
-Message: I can't imagine having to run a marathon
+Message:I can't imagine having to run a marathon
 Meme:{"subject":"marathons"}
 ###
 '''

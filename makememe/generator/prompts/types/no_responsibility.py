@@ -11,25 +11,25 @@ class No_Responsibility(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: Company 1 is suing company 2 and neither thinks they are wrong
+Message:Company 1 is suing company 2 and neither thinks they are wrong
 Meme:{"party_one":"Company 1", "party_two":"company 2"}
 ###
-Message: The shoemaker blames the sockmaker and the sockmaker blames the shoemaker
+Message:The shoemaker blames the sockmaker and the sockmaker blames the shoemaker
 Meme:{"party_one":"shoemaker", "party_two":"sockmaker"}
 ###
-Message: Coffee blames tea for not waking me up after I drink both
+Message:Coffee blames tea for not waking me up after I drink both
 Meme:{"party_one":"coffee blaming tea for not walking me up", "party_two":"tea"}
 ###
-Message: I can't do anything useful
+Message:I can't do anything useful
 Meme:{"party_one":"me", "party_two":"me"}
 ###
-Message: break
+Message:break
 Meme:{"party_one":"break", "party_two":"break"}
 ###
-Message: tlest;laksd
+Message:tlest;laksd
 Meme:{"party_one":"test;laksd", "party_two":"test;laksd"}
 ###
-Message: The code I wrote this week blames the code I wrote last week
+Message:The code I wrote this week blames the code I wrote last week
 Meme:{"party_one":"The code I wrote this week", "party_two":"the code I wrote last week"}
 ###
 '''

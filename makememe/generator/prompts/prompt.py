@@ -11,4 +11,4 @@ class Prompt:
 
 
     def append_example(self, example):
-        self.instruction = self.instruction + "Message: " + example + "\n" + "Meme:"
+        self.instruction = self.instruction + "Message:" + example + "\n" + "Meme:"

@@ -11,25 +11,25 @@ class Three_Levels_Increasing(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: This is somewhat exciting, that is more exciting, but THAT IS extremely exciting
+Message:This is somewhat exciting, that is more exciting, but THAT IS extremely exciting
 Meme:{"somewhat exciting":"this", "more exciting":"that", "extremely exciting":"THAT"}
 ###
-Message: Apples are cool, pears are very cool, but pineapples are the best
+Message:Apples are cool, pears are very cool, but pineapples are the best
 Meme:{"somewhat exciting":"apples", "more exciting":"pears", "extremely exciting":"pineapples"}
 ###
-Message: Going for a walk is nice and going for a jog is pretty good. Nothing is as good as running though!
+Message:Going for a walk is nice and going for a jog is pretty good. Nothing is as good as running though!
 Meme:{"somewhat exciting":"going for a walk", "more exciting":"going for a jog", "extremely exciting":"going for a run"}
 ###
-Message: Nothing is as cool as learning to code. Reading HTML is cool and learning about computers is ok.
+Message:Nothing is as cool as learning to code. Reading HTML is cool and learning about computers is ok.
 Meme:{"somewhat exciting":"learning about computers", "more exciting":"reading HTML", "extremely exciting":"learning to code"}
 ###
-Message: Option 1 is somewhat exciting. Option 2 is more exciting. Option 3 is extremely exciting
+Message:Option 1 is somewhat exciting. Option 2 is more exciting. Option 3 is extremely exciting
 Meme:{"somewhat exciting":"Option 1", "more exciting":"Option 2", "extremely exciting":"Option 3"}
 ###
-Message: break
+Message:break
 Meme:{"somewhat exciting":"break", "more exciting":"break", "extremely exciting":"break"}
 ###
-Message: It is great when users are enjoying the app we built
+Message:It is great when users are enjoying the app we built
 Meme:{"somewhat exciting":"New users", "more exciting":"we built the app", "extremely exciting":"users are enjoying it"}
 ###
 '''

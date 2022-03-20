@@ -11,25 +11,25 @@ class Accurate_Depiction(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: They told me I am too interested in crypto currencies and they couldn't be more right
+Message:They told me I am too interested in crypto currencies and they couldn't be more right
 Meme:{"depiction":"You are too interested in crypto currencies"}
 ###
-Message: I had a fortune cookie tell me I code too much and It is so correct.
+Message:I had a fortune cookie tell me I code too much and It is so correct.
 Meme:{"depiction":"You code too much"}
 ###
-Message: You want to hear an accurate depiction. I am not running enough.
+Message:You want to hear an accurate depiction. I am not running enough.
 Meme:{"depiction":"You are not running enough"}
 ###
-Message: They don't go outside enough. They need to get some sunlight. It's the truth
+Message:They don't go outside enough. They need to get some sunlight. It's the truth
 Meme:{"depiction":"They need to go outside more"}
 ###
-Message: Humans making memes ok, AI making memes awesome.
+Message:Humans making memes ok, AI making memes awesome.
 Meme:{"depiction":"You want AI making memes"}
 ###
-Message: make a meme with strong and weak doggo comparing two types of pots
+Message:Make a meme with strong and weak doggo comparing two types of pots
 Meme:{"depiction":"strong and weak doggo comparing two types of pots"}
 ###
-Message: Too much coffee
+Message:Too much coffee
 Meme:{"depiction":"You drink too much coffee"}
 ###
 '''

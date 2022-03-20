@@ -10,31 +10,31 @@ class Sad(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: We still haven't been to Mars and it makes me cry
+Message:We still haven't been to Mars and it makes me cry
 Meme:{"sad_part": "We still haven't been to Mars"}
 ###
-Message: My college degree didn't get me a job and now I am in debt
+Message:My college degree didn't get me a job and now I am in debt
 Meme:{"sad_part": "Your college degree didn't get you a job and now you're in debt"}
 ###
-Message: I have to actually read to learn something
+Message:I have to actually read to learn something
 Meme:{"sad_part": "You have to actually read to learn something"}
 ###
-Message: I can't run a marathon, but I wish I could
+Message:I can't run a marathon, but I wish I could
 Meme:{"sad_part": "You can't run a marathon"}
 ###
-Message: You are as tall as you will ever be and I guess it is too bad
+Message:You are as tall as you will ever be and I guess it is too bad
 Meme:{"sad_part": "You are as tall as you will ever be"}
 ###
-Message: It is such a bummer that dogs don't live as long as people
+Message:It is such a bummer that dogs don't live as long as people
 Meme:{"sad_part": "Dogs don't live as long as people"}
 ###
-Message: I may never be able to go to the moon and it makes me sad
+Message:I may never be able to go to the moon and it makes me sad
 Meme:{"sad_part": "You may never be able to go to the moon"}
 ###
-Message: Finding a swe internship is challenging.
+Message:Finding a swe internship is challenging.
 Meme:{"sad_part": "You may never find a SWE internship"}
 ###
-Message: Happy
+Message:Happy
 Meme:{"sad_part": "happy"}
 ###
 '''

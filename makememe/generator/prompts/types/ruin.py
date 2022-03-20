@@ -11,19 +11,19 @@ class Ruin(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: Me getting a good at a library is ruined by a new library replacing it.
+Message:Me getting a good at a library is ruined by a new library replacing it.
 Meme:{"subject":"Me getting good at a new library", "ruiner":"new library replacing it"}
 ###
-Message: When you're halfway through a book, but can't finish it because a new TV show you love comes out
+Message:When you're halfway through a book, but can't finish it because a new TV show you love comes out
 Meme:{"subject":"halfway through a book", "ruiner":"new TV show you love comes out"}
 ###
-Message: Apple Music really can't keep up with Spotify's innovation
+Message:Apple Music really can't keep up with Spotify's innovation
 Meme:{"subject":"Apple Music", "ruiner":"Spotify's innovation"}
 ###
-Message: a
+Message:a
 Meme:{"subject":"a", "ruiner":"a"}
 ###
-Message: Getting rid of an accumulation of stuff I don't use is ruined by Christmas gifts
+Message:Getting rid of an accumulation of stuff I don't use is ruined by Christmas gifts
 Meme:{"subject":"Getting rid of an accumulation of stuff I don't use", "ruiner":"Christmas gifts"}
 ###
 '''

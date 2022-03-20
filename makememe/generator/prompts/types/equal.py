@@ -12,22 +12,22 @@ class Equal(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: Tea and coffee are equally is good. They both make me happy
+Message:Tea and coffee are equally is good. They both make me happy
 Meme:{"first":"Tea", "second":"coffee"}
 ###
-Message: Both Dr. Dre and Kanye are amazing. I love them both
+Message:Both Dr. Dre and Kanye are amazing. I love them both
 Meme:{"first":"Dr. Dre", "second":"Kanye"}
 ###
-Message: If I had to decide between Honda and Tesla I couldn't. They are both great.
+Message:If I had to decide between Honda and Tesla I couldn't. They are both great.
 Meme:{"first":"Honda", "second":"Tesla"}
 ###
-Message: Riding a bike on dirt is just as fun as riding on the street
+Message:Riding a bike on dirt is just as fun as riding on the street
 Meme:{"first":"writing a bike on the dirt","second":"writing a bike on the street"}
 ###
-Message: Surfing in warm water is the same as surfing in cold water. They are equally fun
+Message:Surfing in warm water is the same as surfing in cold water. They are equally fun
 Meme:{"first":"surfing in cold water","second":"surfing in warm water"}
 ###
-Message: alsdjkfa
+Message:alsdjkfa
 Meme:{"first":"alsdjkfa","second":"alsdjkfa"}
 ###
 '''

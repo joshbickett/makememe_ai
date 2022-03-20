@@ -10,13 +10,13 @@ class Missing_Something(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: I miss going for long by the beach
+Message:I miss going for long by the beach
 Meme:{"missing": "long runs by the beach"}
 ###
-Message: I wish there was a new season of The Office
+Message:I wish there was a new season of The Office
 Meme:{"missing": "a new season of The Office"}
 ###
-Message: I love the smell of a new car
+Message:I love the smell of a new car
 Meme:{"missing": "The smell of a brand new car"}
 ###
 '''

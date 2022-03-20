@@ -11,13 +11,13 @@ class Strong_Preference(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: Programmers prefer to use print statements over debug libraries
+Message:Programmers prefer to use print statements over debug libraries
 Meme:{"subject":"programmers", "less preferred":"print statements", "more preferred":"debug libraries"}
 ###
-Message: I like running outside more than running in a Gym
+Message:I like running outside more than running in a Gym
 Meme:{"subject":"runners", "less preferred":"running outside", "more preferred":"running in a gym"}
 ###
-Message: I prefer this option greatly over that option
+Message:I prefer this option greatly over that option
 Meme:{"subject":"me", "less preferred":"running outside", "more preferred":"running in a gym"}
 ###
 '''

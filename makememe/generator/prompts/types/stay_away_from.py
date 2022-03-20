@@ -11,10 +11,10 @@ class Stay_Away_From(Prompt):
     def __init__(self):
         self.instruction = '''
 ###
-Message: I typically prefer to stay away from people who are not my friends.
+Message:I typically prefer to stay away from people who are not my friends.
 Meme:{"subject":"who are not my friends."}
 ###
-Message: I don't hang out with Tiktokers
+Message:I don't hang out with Tiktokers
 Meme:{"subject":"Tiktokers"}
 ###
 '''
