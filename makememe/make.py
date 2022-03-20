@@ -30,7 +30,7 @@ import sys, os
 
 def make(description, user_id):
     
-    user_input = description.strip().replace('\r\n', ', ')
+    user_input = description.strip().replace('\r\n', ', ').replace(':', '-')
     nlp_output = ''
     if not profanity.contains_profanity(user_input):
 
@@ -123,7 +123,7 @@ def generate_meme(user_input, meme_description, user_id):
                 meme.append_example(user_input)
                 print(f'prompt: {meme.instruction}')
 
-                filter_no = GPT.content_filter(meme.instruction, user_id)['choices'][0]['text']
+                filter_no = GPT.content_filter(meme.instruction.strip(), user_id)['choices'][0]['text']
                 print("filter_no: ", filter_no)
                 if filter_no == '2':
                     raise Exception('The content has been flagged')
@@ -131,8 +131,11 @@ def generate_meme(user_input, meme_description, user_id):
                 response = GPT.completion_request(meme.instruction, user_id)['choices'][0]['text'].strip()
 
                 print(f'response:{response}')
-                response = json.loads(response)
-                image_name = meme.create(response)
+                response_split = response.split('\n')[0]
+                cleaned_response = json.loads(response_split)
+                print(f'cleaned_response:{response}')
+                
+                image_name = meme.create(cleaned_response)
             
             file_location = f'creations/{image_name}'
             context = {
