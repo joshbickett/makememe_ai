@@ -44,7 +44,7 @@ class GPT:
 
     def content_filter(prompt, user_id):
         wrapped_prompt = "<|endoftext|>" + prompt + "\n--\nLabel:"
-        print(f'wrapped_prompt: {wrapped_prompt}')
+        # print(f'wrapped_prompt: {wrapped_prompt}')
         d_url = 'https://api.openai.com/v1/engines/content-filter-alpha-c4/completions'
         payload = \
             {
