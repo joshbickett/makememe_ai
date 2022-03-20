@@ -20,6 +20,9 @@ Meme:{"subject":"runners", "less preferred":"running outside", "more preferred":
 Message:I prefer this option greatly over that option
 Meme:{"subject":"me", "less preferred":"running outside", "more preferred":"running in a gym"}
 ###
+Message:Physics
+Meme:{"subject":"Physicists", "less preferred":"Learning about chemistry", "more preferred":"Learning about space"}
+###
 '''
 
     def create(self, meme_text):

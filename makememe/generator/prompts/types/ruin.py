@@ -21,10 +21,13 @@ Message:Apple Music really can't keep up with Spotify's innovation
 Meme:{"subject":"Apple Music", "ruiner":"Spotify's innovation"}
 ###
 Message:a
-Meme:{"subject":"a", "ruiner":"a"}
+Meme:{"subject":"a", "ruiner":" "}
 ###
 Message:Getting rid of an accumulation of stuff I don't use is ruined by Christmas gifts
 Meme:{"subject":"Getting rid of an accumulation of stuff I don't use", "ruiner":"Christmas gifts"}
+###
+Message:Hodle
+Meme:{"subject":"Hodle", "ruiner":"Hodle"}
 ###
 '''
 
