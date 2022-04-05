@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Indifferent(Prompt):
     name = "Indifferent"
-    description = "indifferent"
+    description = "I don't care about this"
 
     def __init__(self):
         self.instruction = '''
@@ -21,7 +21,7 @@ Message:Doing laundry is the worst, I really don't care for it
 Meme:{"action":"Doing laundry"}
 ###
 Message:Some people cut in line and don't care about others
-Meme:{"action":""people cut in line"}
+Meme:{"action":"people cut in line"}
 ###
 Message:We should all wear sunscreen, but some people don't seem to care
 Meme:{"action":"wearing sunscreen"}

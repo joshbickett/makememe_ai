@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Is_Better(Prompt):
     name = "Is_Better"
-    description = "something is better"
+    description = "something is better than something else"
 
     def __init__(self):
         self.instruction = '''

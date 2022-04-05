@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Change_My_Mind(Prompt):
     name = "Change_My_Mind"
-    description = "There is an opinion"
+    description = "This is the way it is in my opinion"
 
     def __init__(self):
         self.instruction = '''

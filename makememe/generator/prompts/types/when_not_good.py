@@ -5,7 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class When_Not_Good(Prompt):
     name = "When_Not_Good"
-    description = "when not good"
+    description = "when something is really bad"
 
     def __init__(self):
         self.instruction = '''

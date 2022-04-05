@@ -40,7 +40,7 @@ def make(description, user_id):
             print(f'user_id: ', user_id)
             print('________start_________')
             try:
-                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "something is better", "poor fix", "no responsibility", "the solution was a poor way of doing it", "There is an opinion", "accurate depiction", "is the same as", "stay away from", "ruin", "scary", "The subject has a strong preference for one option over another", "something is missing and I wish it was still here", "when not good"]
+                documents= ["sad", "I don't care about this", "waiting", "they don't know", "pompous", "something is better than something else", "poor fix", "no responsibility", "the solution was a poor way of doing it", "This is the way it is in my opinion", "accurate depiction", "something is the same as something else", "stay away from", "ruin", "scary", "The subject has a strong preference for one option over another", "something is missing and I wish it was still here", "when something is really bad"]
                 
                 testing = False
                 if testing:
@@ -53,7 +53,7 @@ def make(description, user_id):
                     }
                     response = GPT.search_request(documents, user_input, user_id)
                     for d in response['data']: 
-                        print("d: ", d)
+                        print("d: ", d, documents[d["document"]])
                         
                         if d["score"] > best_result["score"]:  
                             print("document: ", d["document"])
