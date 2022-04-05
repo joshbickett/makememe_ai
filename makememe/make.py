@@ -11,7 +11,6 @@ from makememe.generator.prompts.types.ineffective_solution import Ineffective_So
 from makememe.generator.prompts.types.change_my_mind import Change_My_Mind
 from makememe.generator.prompts.types.accurate_depiction import Accurate_Depiction
 from makememe.generator.prompts.types.equal import Equal
-from makememe.generator.prompts.types.distracting import Distracting
 from makememe.generator.prompts.types.stay_away_from import Stay_Away_From
 from makememe.generator.prompts.types.ruin import Ruin
 from makememe.generator.prompts.types.scary import Scary
@@ -41,7 +40,7 @@ def make(description, user_id):
             print(f'user_id: ', user_id)
             print('________start_________')
             try:
-                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "something is better", "poor fix", "no responsibility", "the solution was a poor way of doing it", "There is an opinion", "accurate depiction", "is the same as", "distracting", "stay away from", "ruin", "scary", "The subject has a strong preference for one option over another", "something is missing and I wish it was still here", "when not good"]
+                documents= ["sad", "indifferent", "waiting", "they don't know", "pompous", "something is better", "poor fix", "no responsibility", "the solution was a poor way of doing it", "There is an opinion", "accurate depiction", "is the same as", "stay away from", "ruin", "scary", "The subject has a strong preference for one option over another", "something is missing and I wish it was still here", "when not good"]
                 
                 testing = False
                 if testing:
@@ -110,7 +109,7 @@ def make(description, user_id):
 
 def generate_meme(user_input, meme_description, user_id):
     print('________meme_prompt_________')
-    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Pompous, No_Responsibility, Ineffective_Solution, Change_My_Mind, Accurate_Depiction, Equal, Distracting, Stay_Away_From, Ruin, Scary, Strong_Preference, Missing_Something, When_Not_Good]
+    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Pompous, No_Responsibility, Ineffective_Solution, Change_My_Mind, Accurate_Depiction, Equal, Stay_Away_From, Ruin, Scary, Strong_Preference, Missing_Something, When_Not_Good]
     for meme in memes:
         if meme_description == meme.description:
             testing = False
