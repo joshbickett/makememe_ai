@@ -39,7 +39,7 @@ def make(description, user_id):
             print(f'user_id: ', user_id)
             print('________start_________')
             try:
-                documents= ["sad", "I don't care about this", "waiting", "they don't know", "pompous", "something is better than something else", "poor fix", "no responsibility", "the solution was a poor way of doing it", "This is the way it is in my opinion", "accurate depiction", "something is the same as something else", "stay away from", "ruin", "scary", "something is missing and I wish it was still here", "when something is really bad"]
+                documents= ["sad", "I don't care about this", "waiting", "they don't know", "pompous", "this is better than that", "poor fix", "two parties blaming eachother for something", "the solution was a poor way of doing it", "This is the way it is in my opinion", "accurate depiction", "something is the same as something else", "stay away from", "ruin", "scary", "something is missing and I wish it was still here", "when something is really bad"]
                 
                 testing = False
                 if testing:

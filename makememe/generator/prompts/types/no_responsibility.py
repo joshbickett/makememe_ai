@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class No_Responsibility(Prompt):
     name = "No_Responsibility"
-    description = "no responsibility"
+    description = "two parties blaming eachother for something"
 
     def __init__(self):
         self.instruction = '''
@@ -37,8 +37,8 @@ Meme:{"party_one":"The code I wrote this week", "party_two":"the code I wrote la
     def create(self, meme_text):
         with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
 
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['party_one'], position=(175, 200), font_size=50, text_color="white", wrapped_width=8)
-            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['party_two'], position=(800, 200), font_size=50, text_color="white", wrapped_width=8)
+            overlay_image = Image_Manager.add_text(base=base, text=meme_text['party_one'], position=(175, 200), font_size=40, text_color="white", wrapped_width=12)
+            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['party_two'], position=(800, 200), font_size=40, text_color="white", wrapped_width=12)
             watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(10, 515), font_size=25, text_color="white")
         
             base = Image.alpha_composite(base, watermark)
