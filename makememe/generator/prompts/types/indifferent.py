@@ -6,7 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 class Indifferent(Prompt):
     name = "Indifferent"
-    description = "I don't care about this"
+    description = "this is not important to me"
 
     def __init__(self):
         self.instruction = '''
