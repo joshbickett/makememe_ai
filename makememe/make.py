@@ -25,36 +25,52 @@ from makememe import db
 from better_profanity import profanity
 import sys, os
 
+
 def make(description, user_id):
-    
-    user_input = description.strip().replace('\r\n', ', ').replace(':', '-')
-    nlp_output = ''
+
+    user_input = description.strip().replace("\r\n", ", ").replace(":", "-")
+    nlp_output = ""
     if not profanity.contains_profanity(user_input):
 
         hit_limit = did_hit_limit()
         # hit_limit = False
 
         if hit_limit == False:
-            print(f'user_input: {user_input}')
-            print(f'user_id: ', user_id)
-            print('________start_________')
+            print(f"user_input: {user_input}")
+            print(f"user_id: ", user_id)
+            print("________start_________")
             try:
-                documents= ["sad", "this is not important to me", "waiting", "they don't know", "pompous", "this is better than that", "poor fix", "two parties blaming eachother for something", "the solution was a poor way of doing it", "This is the way it is in my opinion", "accurate depiction", "something is the same as something else", "stay away from", "ruin", "scary", "something is missing and I wish it was still here", "when something is really bad"]
-                
+                documents = [
+                    "sad",
+                    "this is not important to me",
+                    "waiting",
+                    "they don't know",
+                    "pompous",
+                    "this is better than that",
+                    "poor fix",
+                    "two parties blaming eachother for something",
+                    "the solution was a poor way of doing it",
+                    "This is the way it is in my opinion",
+                    "accurate depiction",
+                    "something is the same as something else",
+                    "stay away from",
+                    "ruin",
+                    "scary",
+                    "something is missing and I wish it was still here",
+                    "when something is really bad",
+                ]
+
                 testing = False
                 if testing:
                     meme_description = documents[-1]
                     print("meme_description: ", meme_description)
-                else: 
-                    best_result = {
-                        "index": -1, 
-                        "score": 0
-                    }
+                else:
+                    best_result = {"index": -1, "score": 0}
                     response = GPT.search_request(documents, user_input, user_id)
-                    for d in response['data']: 
+                    for d in response["data"]:
                         print("d: ", d, documents[d["document"]])
-                        
-                        if d["score"] > best_result["score"]:  
+
+                        if d["score"] > best_result["score"]:
                             print("document: ", d["document"])
                             print("score: ", d["score"])
                             print("meme: ", documents[d["document"]])
@@ -64,97 +80,113 @@ def make(description, user_id):
                     print("best_result: ", best_result)
                     print("selected meme: ", documents[best_result["index"]])
                     meme_description = documents[best_result["index"]]
-                
+
                 nlp_output = meme_description
                 meme = generate_meme(user_input, meme_description, user_id)
             except Exception as e:
                 exc_type, exc_obj, exc_tb = sys.exc_info()
                 fname = os.path.split(exc_tb.tb_frame.f_code.co_filename)[1]
-                print(f'error: {e}')
+                print(f"error: {e}")
                 print(exc_type, fname, exc_tb.tb_lineno)
-                
-                nlp_output = 'error'
-                if isinstance(e.args[0], str): 
-                    flagged = e.args[0].startswith('The content has been flagged')
+
+                nlp_output = "error"
+                if isinstance(e.args[0], str):
+                    flagged = e.args[0].startswith("The content has been flagged")
                     if flagged:
-                        nlp_output = 'flagged'
-                        meme = {
-                            'meme': 'meme_pics/flagged.png'
-                        }
+                        nlp_output = "flagged"
+                        meme = {"meme": "meme_pics/flagged.png"}
                     else:
-                        meme = {
-                            'meme': 'meme_pics/error.png'
-                        }
-                else: 
-                    meme = {
-                        'meme': 'meme_pics/error.png'
-                    }
-        else: 
-            nlp_output = 'limit hit'
-            meme = {
-                'meme': 'meme_pics/limit_15.png'
-            }
+                        meme = {"meme": "meme_pics/error.png"}
+                else:
+                    meme = {"meme": "meme_pics/error.png"}
+        else:
+            nlp_output = "limit hit"
+            meme = {"meme": "meme_pics/limit_15.png"}
     else:
-        nlp_output = 'flagged'
-        meme = {
-            'meme': 'meme_pics/flagged.png'
-        }
-    
-    meme_for_db = Meme(title=meme['meme'], text_input=user_input, nlp_output=nlp_output, user_id=current_user.id)
+        nlp_output = "flagged"
+        meme = {"meme": "meme_pics/flagged.png"}
+
+    meme_for_db = Meme(
+        title=meme["meme"],
+        text_input=user_input,
+        nlp_output=nlp_output,
+        user_id=current_user.id,
+    )
     db.session.add(meme_for_db)
     db.session.commit()
     return meme
 
 
 def generate_meme(user_input, meme_description, user_id):
-    print('________meme_prompt_________')
-    memes = [They_Dont_Know, Indifferent, Poor_Fix, Sad, Waiting, Is_Better, Pompous, No_Responsibility, Ineffective_Solution, Change_My_Mind, Accurate_Depiction, Equal, Stay_Away_From, Ruin, Scary, Missing_Something, When_Not_Good]
+    print("________meme_prompt_________")
+    memes = [
+        They_Dont_Know,
+        Indifferent,
+        Poor_Fix,
+        Sad,
+        Waiting,
+        Is_Better,
+        Pompous,
+        No_Responsibility,
+        Ineffective_Solution,
+        Change_My_Mind,
+        Accurate_Depiction,
+        Equal,
+        Stay_Away_From,
+        Ruin,
+        Scary,
+        Missing_Something,
+        When_Not_Good,
+    ]
     for meme in memes:
         if meme_description == meme.description:
             testing = False
-            if testing: 
-                meme = eval(f'{meme.name}()')
-                image_name = meme.create({"depiction":"You want AI making memes. this is a long test a very long tdst"})
-            else: 
-                meme = eval(f'{meme.name}()')
+            if testing:
+                meme = eval(f"{meme.name}()")
+                image_name = meme.create(
+                    {
+                        "depiction": "You want AI making memes. this is a long test a very long tdst"
+                    }
+                )
+            else:
+                meme = eval(f"{meme.name}()")
                 meme.append_example(user_input)
-                print(f'prompt: {meme.instruction}')
+                print(f"prompt: {meme.instruction}")
 
-                filter_no = GPT.content_filter(meme.instruction.strip(), user_id)['choices'][0]['text']
+                filter_no = GPT.content_filter(meme.instruction.strip(), user_id)[
+                    "choices"
+                ][0]["text"]
                 print("filter_no: ", filter_no)
-                if filter_no == '2':
-                    raise Exception('The content has been flagged')
-                print('________meme_completion_________')
-                response = GPT.completion_request(meme.instruction, user_id)['choices'][0]['text'].strip()
+                if filter_no == "2":
+                    raise Exception("The content has been flagged")
+                print("________meme_completion_________")
+                response = GPT.completion_request(meme.instruction, user_id)["choices"][
+                    0
+                ]["text"].strip()
 
-                print(f'response:{response}')
-                response_split = response.split('\n')[0]
+                print(f"response:{response}")
+                response_split = response.split("\n")[0]
                 cleaned_response = json.loads(response_split)
-                print(f'cleaned_response:{response}')
-                
+                print(f"cleaned_response:{response}")
+
                 image_name = meme.create(cleaned_response)
-            
-            file_location = f'creations/{image_name}'
-            context = {
-                'meme': file_location
-            }
+
+            file_location = f"creations/{image_name}"
+            context = {"meme": file_location}
             return context
     print("Meme type not found")
-    context = {
-        'meme': 'meme_pics/error.png'
-    }
+    context = {"meme": "meme_pics/error.png"}
     return context
 
-def did_hit_limit(): 
+
+def did_hit_limit():
     user = Users.query.filter_by(id=current_user.id).first()
     now = datetime.now()
     day_ago = now - timedelta(hours=24)
-    meme_count = Meme.query.filter(Meme.date_created > day_ago, Meme.user_id == current_user.id).count()
+    meme_count = Meme.query.filter(
+        Meme.date_created > day_ago, Meme.user_id == current_user.id
+    ).count()
     if meme_count > 15:
         return True
-    else: 
+    else:
         return False
-
-
-
-

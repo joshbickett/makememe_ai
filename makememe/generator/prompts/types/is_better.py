@@ -9,7 +9,7 @@ class Is_Better(Prompt):
     description = "this is better than that"
 
     def __init__(self):
-        self.instruction = '''
+        self.instruction = """
 ###
 Message:I like coffee, but tea is much better
 Meme:{"worse":"coffee", "better":"tea"}
@@ -50,14 +50,30 @@ Meme:{"worse":"human making memes","better":"AI making memes"}
 Message:better
 Meme:{"worse":"better","better":"better 2.0"}
 ###
-'''
+"""
 
     def create(self, meme_text):
-        with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert("RGBA") as base:
-            
-            overlay_image = Image_Manager.add_text(base=base, text=meme_text['worse'], position=(625, 100), font_size=50, wrapped_width=15)
-            overlay_image_2 = Image_Manager.add_text(base=base, text=meme_text['better'], position=(625, 525), font_size=50, wrapped_width=15)
-            watermark = Image_Manager.add_text(base=base, text='makememe.ai', position=(1000, 850), font_size=25)
+        with Image.open(f"makememe/static/meme_pics/{self.name.lower()}.jpg").convert(
+            "RGBA"
+        ) as base:
+
+            overlay_image = Image_Manager.add_text(
+                base=base,
+                text=meme_text["worse"],
+                position=(625, 100),
+                font_size=50,
+                wrapped_width=15,
+            )
+            overlay_image_2 = Image_Manager.add_text(
+                base=base,
+                text=meme_text["better"],
+                position=(625, 525),
+                font_size=50,
+                wrapped_width=15,
+            )
+            watermark = Image_Manager.add_text(
+                base=base, text="makememe.ai", position=(1000, 850), font_size=25
+            )
 
             base = Image.alpha_composite(base, watermark)
             base = Image.alpha_composite(base, overlay_image_2)
@@ -65,9 +81,7 @@ Meme:{"worse":"better","better":"better 2.0"}
             if out.mode in ("RGBA", "P"):
                 out = out.convert("RGB")
                 date = datetime.datetime.now()
-                image_name = f'{date}.jpg'
-                file_location = f'makememe/static/creations/{image_name}'
+                image_name = f"{date}.jpg"
+                file_location = f"makememe/static/creations/{image_name}"
                 out.save(file_location)
                 return image_name
-
-
