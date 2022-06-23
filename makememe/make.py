@@ -14,7 +14,6 @@ from makememe.generator.prompts.types.equal import Equal
 from makememe.generator.prompts.types.stay_away_from import Stay_Away_From
 from makememe.generator.prompts.types.ruin import Ruin
 from makememe.generator.prompts.types.scary import Scary
-from makememe.generator.prompts.types.missing_something import Missing_Something
 from makememe.generator.prompts.types.when_not_good import When_Not_Good
 from makememe.generator.nlp.gpt import GPT
 from flask_login import current_user
@@ -32,8 +31,8 @@ def make(description, user_id):
     nlp_output = ""
     if not profanity.contains_profanity(user_input):
 
-        hit_limit = did_hit_limit()
-        # hit_limit = False
+        # hit_limit = did_hit_limit()
+        hit_limit = False
 
         if hit_limit == False:
             print(f"user_input: {user_input}")
@@ -41,28 +40,28 @@ def make(description, user_id):
             print("________start_________")
             try:
                 documents = [
-                    "sad",
-                    "this is not important to me",
-                    "waiting",
-                    "they don't know",
-                    "pompous",
-                    "this is better than that",
-                    "poor fix",
-                    "two parties blaming eachother for something",
-                    "the solution was a poor way of doing it",
-                    "This is the way it is in my opinion",
-                    "accurate depiction",
-                    "something is the same as something else",
-                    "stay away from",
-                    "ruin",
-                    "scary",
-                    "something is missing and I wish it was still here",
-                    "when something is really bad",
+                    { "id": 1, "name": "sad"},
+                    { "id": 2, "name":"this is not important to me"},
+                    { "id": 3, "name":"waiting"},
+                    { "id": 4, "name":"they don't know"},
+                    { "id": 5, "name":"pompous"},
+                    { "id": 6, "name":"this is better than that"},
+                    { "id": 7, "name":"poor fix"},
+                    { "id": 8, "name":"two parties blaming eachother for something"},
+                    { "id": 9, "name":"the solution was a poor way of doing it"},
+                    { "id": 10, "name":"This is the way it is in my opinion"},
+                    { "id": 11, "name":"accurate depiction"},
+                    { "id": 12, "name":"something is the same as something else"},
+                    { "id": 13, "name":"stay away from"},
+                    { "id": 14, "name":"ruin"},
+                    { "id": 15, "name":"scary"},
+                    { "id": 16, "name":"when something is really bad"},
                 ]
 
-                testing = False
+                testing = True
                 if testing:
-                    meme_description = documents[-1]
+                    meme_description = documents[9]["name"]
+                    print("meme_description: ", documents[0])
                     print("meme_description: ", meme_description)
                 else:
                     best_result = {"index": -1, "score": 0}
@@ -78,8 +77,8 @@ def make(description, user_id):
                             best_result["index"] = d["document"]
 
                     print("best_result: ", best_result)
-                    print("selected meme: ", documents[best_result["index"]])
-                    meme_description = documents[best_result["index"]]
+                    print("selected meme: ", documents[best_result["index"]]["name"])
+                    meme_description = documents[best_result["index"]["name"]]
 
                 nlp_output = meme_description
                 meme = generate_meme(user_input, meme_description, user_id)
@@ -135,7 +134,6 @@ def generate_meme(user_input, meme_description, user_id):
         Stay_Away_From,
         Ruin,
         Scary,
-        Missing_Something,
         When_Not_Good,
     ]
     for meme in memes:

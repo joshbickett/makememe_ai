@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Ineffective_Solution(Prompt):
+    id = 9
     name = "Ineffective_Solution"
     description = "the solution was a poor way of doing it"
 

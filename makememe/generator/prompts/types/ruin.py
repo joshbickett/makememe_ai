@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Ruin(Prompt):
+    id = 14
     name = "Ruin"
     description = "ruin"
 

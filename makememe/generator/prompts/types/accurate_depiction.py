@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Accurate_Depiction(Prompt):
+    id = 11
     name = "Accurate_Depiction"
     description = "accurate depiction"
 

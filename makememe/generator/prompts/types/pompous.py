@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Pompous(Prompt):
+    id = 5
     name = "Pompous"
     description = "pompous"
 

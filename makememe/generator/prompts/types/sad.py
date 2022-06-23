@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Sad(Prompt):
+    id = 1
     name = "Sad"
     description = "sad"
 
@@ -23,7 +24,7 @@ Meme:{"sad_part": "You have to actually read to learn something"}
 Message:I can't run a marathon, but I wish I could
 Meme:{"sad_part": "You can't run a marathon"}
 ###
-Message:You are as tall as you will ever be and I guess it is too bad
+Message:I am as tall as i will ever be and I guess it is too bad
 Meme:{"sad_part": "You are as tall as you will ever be"}
 ###
 Message:It is such a bummer that dogs don't live as long as people
@@ -36,7 +37,7 @@ Message:Finding a swe internship is challenging.
 Meme:{"sad_part": "You may never find a SWE internship"}
 ###
 Message:Happy
-Meme:{"sad_part": "happy"}
+Meme:{"sad_part": "it doesn't matter if we're happy"}
 ###
 """
 

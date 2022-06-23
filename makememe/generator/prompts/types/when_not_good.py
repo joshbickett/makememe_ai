@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class When_Not_Good(Prompt):
+    id = 16
     name = "When_Not_Good"
     description = "when something is really bad"
 

@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Is_Better(Prompt):
+    id = 6
     name = "Is_Better"
     description = "this is better than that"
 

@@ -6,6 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Equal(Prompt):
+    id = 12
     name = "Equal"
     description = "something is the same as something else"
 

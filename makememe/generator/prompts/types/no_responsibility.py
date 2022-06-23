@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class No_Responsibility(Prompt):
+    id = 8
     name = "No_Responsibility"
     description = "two parties blaming eachother for something"
 

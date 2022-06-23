@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Stay_Away_From(Prompt):
+    id = 13
     name = "Stay_Away_From"
     description = "stay away from"
 

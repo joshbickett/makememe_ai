@@ -6,6 +6,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Poor_Fix(Prompt):
+    id = 7
     name = "Poor_Fix"
     description = "poor fix"
 

@@ -5,6 +5,7 @@ from makememe.generator.design.image_manager import Image_Manager
 
 
 class Waiting(Prompt):
+    id =3
     name = "Waiting"
     description = "waiting"
 
