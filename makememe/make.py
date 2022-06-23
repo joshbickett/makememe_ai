@@ -31,8 +31,8 @@ def make(description, user_id):
     nlp_output = ""
     if not profanity.contains_profanity(user_input):
 
-        # hit_limit = did_hit_limit()
-        hit_limit = False
+        hit_limit = did_hit_limit()
+        # hit_limit = False
 
         if hit_limit == False:
             print(f"user_input: {user_input}")
@@ -58,27 +58,32 @@ def make(description, user_id):
                     { "id": 16, "name":"when something is really bad"},
                 ]
 
-                testing = True
+                testing = False
                 if testing:
                     meme_description = documents[9]["name"]
                     print("meme_description: ", documents[0])
                     print("meme_description: ", meme_description)
                 else:
                     best_result = {"index": -1, "score": 0}
-                    response = GPT.search_request(documents, user_input, user_id)
+                    # pull out all name values from the documents
+                    names = [doc["name"] for doc in documents]
+                    print("names: ", names)
+
+
+                    response = GPT.search_request(names, user_input, user_id)
                     for d in response["data"]:
-                        print("d: ", d, documents[d["document"]])
+                        print("d: ", d, names[d["document"]])
 
                         if d["score"] > best_result["score"]:
                             print("document: ", d["document"])
                             print("score: ", d["score"])
-                            print("meme: ", documents[d["document"]])
+                            print("meme: ", names[d["document"]])
                             best_result["score"] = d["score"]
                             best_result["index"] = d["document"]
 
                     print("best_result: ", best_result)
-                    print("selected meme: ", documents[best_result["index"]]["name"])
-                    meme_description = documents[best_result["index"]["name"]]
+                    print("selected meme: ", names[best_result["index"]])
+                    meme_description = names[best_result["index"]]
 
                 nlp_output = meme_description
                 meme = generate_meme(user_input, meme_description, user_id)
