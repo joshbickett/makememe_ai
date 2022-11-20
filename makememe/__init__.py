@@ -9,6 +9,7 @@ with open("/etc/make_meme/config.json") as config_file:
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = config["SECRET_KEY"]
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # CORS(app)
 
 app.debug = True
