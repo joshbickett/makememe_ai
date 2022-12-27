@@ -23,9 +23,11 @@ from sqlalchemy import Date, cast
 from makememe import db
 from better_profanity import profanity
 import sys, os
-
+from makememe.generator.nlp.embedding import semantic_search
 
 def make(description, user_id):
+
+    
 
     user_input = description.strip().replace("\r\n", ", ").replace(":", "-")
     nlp_output = ""
@@ -61,29 +63,16 @@ def make(description, user_id):
                 testing = False
                 if testing:
                     meme_description = documents[9]["name"]
+                    names = [doc["name"] for doc in documents]
+                   
                     print("meme_description: ", documents[0])
                     print("meme_description: ", meme_description)
                 else:
                     best_result = {"index": -1, "score": 0}
                     # pull out all name values from the documents
                     names = [doc["name"] for doc in documents]
-                    print("names: ", names)
-
-
-                    response = GPT.search_request(names, user_input, user_id)
-                    for d in response["data"]:
-                        print("d: ", d, names[d["document"]])
-
-                        if d["score"] > best_result["score"]:
-                            print("document: ", d["document"])
-                            print("score: ", d["score"])
-                            print("meme: ", names[d["document"]])
-                            best_result["score"] = d["score"]
-                            best_result["index"] = d["document"]
-
-                    print("best_result: ", best_result)
-                    print("selected meme: ", names[best_result["index"]])
-                    meme_description = names[best_result["index"]]
+                    semantic_result = semantic_search(names, user_input)
+                    meme_description = semantic_result
 
                 nlp_output = meme_description
                 meme = generate_meme(user_input, meme_description, user_id)
