@@ -20,13 +20,13 @@ def home():
             meme = make(description, current_user.id)
         else:
             meme = {
-                "meme": "default.png",
+                "meme": "default.jpg",
             }
     else:
         is_beta = False
         authenticated = False
         meme = {
-            "meme": "default.png",
+            "meme": "default.jpg",
         }
     image_file = url_for("static", filename=meme["meme"])
 
